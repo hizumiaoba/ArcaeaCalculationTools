@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 
 	@Override public String toString() {
 		try {
-			return ResourceBundle.getBundle("languages.", Locale.getDefault()).getString(name());
+			return ResourceBundle.getBundle("languages.List", Locale.getDefault()).getString(name());
 		}catch(Exception e) {
 			e.printStackTrace();
 			return null;
