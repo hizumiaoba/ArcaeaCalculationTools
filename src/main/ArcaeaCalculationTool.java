@@ -11,11 +11,6 @@ import javax.swing.JButton;
 
 public class ArcaeaCalculationTool {
 
-	private static final int TITLE = 0;
-	private static final int PST = 1;
-	private static final int PRS = 2;
-	private static final int FTR = 3;
-	private static final int BYD = 4;
 	public static JButton SwichToPotential = new JButton(Messages.MSGSwitchToPotential.toString());
 	public static JButton SwitchToStep = new JButton(Messages.MSGSwitchToExp.toString());
 	public static JButton SwitchToExp = new JButton(Messages.MSGSwitchToExp.toString());
