@@ -7,9 +7,12 @@ import java.util.ResourceBundle;
  * プログラム内で使用されるメッセージを一元管理するクラス。
  * メッセージ内容はsrc/languagesの中にあるプロパティファイルにあります。
  *
- * @author hizumiaoba
+ * @author hizumi
  */
 
+/*
+ * ja_JPはUTF-16BE
+ */
 	public enum Messages{
 		MSGSwitchToPotential,
 		MSGSwitchToStep,
