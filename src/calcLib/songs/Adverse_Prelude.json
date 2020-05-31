@@ -1,0 +1,31 @@
+{
+  "Particle_Arts": {
+    "Title": "Particle Arts",
+    "PST": 3.5,
+    "PRS": 6,
+    "FTR": 8.8
+  },
+  "Vindication": {
+    "Title": "Vindication",
+    "PST": 4,
+    "PRS": 6.5,
+    "FTR": 9.6
+  },
+  "Heavensdoor": {
+    "Title": "Heavensdoor",
+    "PST": 4.5,
+    "PRS": 7.4,
+    "FTR": 9.9
+  },
+  "Ringed_Genesis": {
+    "Title": "Ringed Genesis",
+    "PST": 5.5,
+    "PRS": 8.5,
+    "FTR": 10.8
+  },
+  "BLRINK": {
+    "Title": "BLRINK",
+    "PST": 3.5,
+    "PRS": 7.4,
+    "FTR": 9.7
+  }

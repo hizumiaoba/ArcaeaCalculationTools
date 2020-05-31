@@ -1,0 +1,38 @@
+{
+  "Iconoclast": {
+    "Title": "Iconoclast",
+    "PST": 4,
+    "PRS": 7.1,
+    "FTR": 9.1
+  },
+  "SOUNDWiTCH": {
+    "Title": "SOUNDWiTCH",
+    "PST": 3.5,
+    "PRS": 6.5,
+    "FTR": 9.9
+  },
+  "trappola_bewitching": {
+    "Title": "妖艶魔女-trappola bewitching-",
+    "PST": 3,
+    "PRS": 6,
+    "FTR": 10
+  },
+  "conflict": {
+    "Title": "conflict",
+    "PST": 4.5,
+    "PRS": 7.6,
+    "FTR": 10.1
+  },
+  "Axium_Crisis": {
+    "Title": "Axium Crisis",
+    "PST": 5.5,
+    "PRS": 8.3,
+    "FTR": 10.9
+  },
+  "Grievous_Lady": {
+    "Title": "Grievous Lady",
+    "PST": 6.5,
+    "PRS": 9.3,
+    "FTR": 11.3
+  }
+}

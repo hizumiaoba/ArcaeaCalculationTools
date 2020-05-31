@@ -1,0 +1,38 @@
+{
+  "Maze_No_9": {
+    "Title": "9番目の迷路",
+    "PST": 3,
+    "PRS": 3.5,
+    "FTR": 8.9
+  },
+  "The_Message": {
+    "Title": "The Message",
+    "PST": 3,
+    "PRS": 6.5,
+    "FTR": 9.7
+  },
+  "Sulfur": {
+    "Title": "Sulfur",
+    "PST": 4,
+    "PRS": 6,
+    "FTR": 9.7
+  },
+  "Halcyon": {
+    "Title": "Halcyon",
+    "PST": 5.5,
+    "PRS": 8.5,
+    "FTR": 10.7
+  },
+  "Ether_Strike": {
+    "Title": "Ether Strike",
+    "PST": 5.5,
+    "PRS": 8.2,
+    "FTR": 10.3
+  },
+  "Fracture_Ray": {
+    "Title": "Fracture Ray",
+    "PST": 6,
+    "PRS": 9.2,
+    "FTR": 11.2
+  }
+}
