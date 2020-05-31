@@ -107,6 +107,6 @@ public class ChartPotential {
 		} else if(score >= 8600000) {
 			result = "C";
 		}
-		return result
+		return result;
 	}
 }
