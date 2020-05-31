@@ -1,7 +1,7 @@
 package calcLib;
 
-import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * その名の通り譜面別ポテンシャル計算用のライブラリ
  * ライブラリっつてもここで計算処理が行われます
+ * 譜面定数のライブラリは{@link http:hizumiaoba.html.xdomain.jp/json/}に集約しています。
  * @author hizumi
  *
  */
@@ -66,10 +67,10 @@ public class ChartPotential {
 	 */
 	public static double getChartConstant(String pack, String title, String difficulty) {
 		double result = 0.00;
-		String filepath = pack + ".json";
+		String filepath = "http://hizumiaoba.html.xdomain.jp/json/" + pack + ".json";
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			JsonNode node = mapper.readTree(new File(filepath));
+			JsonNode node = mapper.readTree(new URL(filepath));
 			result = node.get(title).get(difficulty).asDouble();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -110,4 +111,23 @@ public class ChartPotential {
 		return result;
 	}
 
+	/**
+	 * おまけその２
+	 * 指定した楽曲の日本語名を返します
+	 * @param pack
+	 * @param title
+	 * @return
+	 */
+	public static String getTitle(String pack, String title) {
+		String result = "";
+		String filepath = "http://hizumiaoba.html.xdomain.jp/json/" + pack + ".json";
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			JsonNode node = mapper.readTree(new URL(filepath));
+			result = node.get(title).get("Title").asText();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
