@@ -66,7 +66,7 @@ public class ChartPotential {
 	 */
 	public static double getChartConstant(String pack, String title, String difficulty) {
 		double result = 0.00;
-		String filepath = "src\\calcLib\\songs\\" + pack + ".json";
+		String filepath = pack + ".json";
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			JsonNode node = mapper.readTree(new File(filepath));
