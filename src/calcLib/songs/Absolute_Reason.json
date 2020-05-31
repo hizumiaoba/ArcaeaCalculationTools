@@ -1,0 +1,32 @@
+{
+  "Antithese": {
+    "Title": "Antithese",
+    "PST": 2,
+    "PRS": 5,
+    "FTR": 8.8
+  },
+  "Black_Territory": {
+    "Title": "Black Territory",
+    "PST": 3,
+    "PRS": 7.1,
+    "FTR": 9.7
+  },
+  "Corruption": {
+    "Title": "Corruption",
+    "PST": 3,
+    "PRS": 6.5,
+    "FTR": 9.9
+  },
+  "Vicious_Heroism": {
+    "Title": "Vicious Heroism",
+    "PST": 4,
+    "PRS": 7.3,
+    "FTR": 10
+  },
+  "Cyaegha": {
+    "Title": "Cyaegha",
+    "PST": 5.5,
+    "PRS": 8.1,
+    "FTR": 10.8
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "Chelsea": {
+    "Title": "Chelsea",
+    "PST": 3,
+    "PRS": 6,
+    "FTR": 8.5
+  },
+  "AIUEOON": {
+    "Title": "AI[UE]OON",
+    "PST": 3.5,
+    "PRS": 6.5,
+    "FTR": 9.5
+  },
+  "A_Wondering_Melody_of_Love": {
+    "Title": "迷える音色は恋の唄",
+    "PST": 3.5,
+    "PRS": 7.3,
+    "FTR": 9.7
+  },
+  "Tie_me_down_gently": {
+    "Title": "Tie me down gently",
+    "PST": 3,
+    "PRS": 5.5,
+    "FTR": 8.3
+  },
+  "Valhalla_0": {
+    "Title": "Valhalla:0",
+    "PST": 4.5,
+    "PRS": 7.5,
+    "FTR": 10.4
+  }
+}
