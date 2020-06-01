@@ -1,7 +1,7 @@
 package calcLib;
 
-import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * その名の通り譜面別ポテンシャル計算用のライブラリ
  * ライブラリっつてもここで計算処理が行われます
+ * 譜面定数のライブラリは{@link http:hizumiaoba.html.xdomain.jp/json/}に集約しています。
  * @author hizumi
  *
  */
@@ -16,7 +17,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ChartPotential {
 
 	// 譜面定数へ加算される最大の補正値です。PMをとると、譜面定数＋この値で固定となります。
-	private static final double MAXCORRECTION = 2.0;
+	private static final double MAXCORRECTION = 2.00;
 
 	/**
 	 * 譜面別ポテンシャルを計算します。計算式はArcaea Wikiに記載されている式を採用しています。
@@ -27,7 +28,7 @@ public class ChartPotential {
 	 * @return Result 計算した譜面別ポテンシャルを返します。譜面別ポテンシャルが0以下の場合はWikiに記載されている内容に基づき、0.0が返されます。
 	 */
 	public static double calcChartPotential(String pack, String title, String difficulty, int score) {
-		double result = 0.0;
+		double result = 0.00;
 		int switcher = 0;
 		if(score >= 10000000) {
 			switcher = 1;
@@ -43,7 +44,7 @@ public class ChartPotential {
 			break;
 
 		case 2:
-			result = getChartConstant(pack, title, difficulty) + 1.0 + (score - 9800000)/200000;
+			result = getChartConstant(pack, title, difficulty) + 1.00 + (score - 9800000)/200000;
 			break;
 
 		case 3:
@@ -53,7 +54,7 @@ public class ChartPotential {
 		default:
 			break;
 		}
-		return result < 0.0 ? 0.0 : result;
+		return result < 0.00 ? 0.00 : result;
 	}
 
 
@@ -65,21 +66,21 @@ public class ChartPotential {
 	 * @return result 取得した譜面定数を返します。0以下の数値がResultに格納されている場合は-1.0を返します
 	 */
 	public static double getChartConstant(String pack, String title, String difficulty) {
-		double result = 0.0;
-		String filepath = "songs." + pack + ".json";
+		double result = 0.00;
+		String filepath = "http://hizumiaoba.html.xdomain.jp/json/" + pack + ".json";
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			JsonNode node = mapper.readTree(new File(filepath));
+			JsonNode node = mapper.readTree(new URL(filepath));
 			result = node.get(title).get(difficulty).asDouble();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return result < 0.0 ? -1.0 : result;
+		return result < 0.00 ? -1.00 : result;
 	}
 
 	/**
 	 * 譜面定数に加算される最大の補正値の取得用です。
-	 * @return　最大の補正値(2.0)
+	 * @return　最大の補正値(2.00)
 	 */
 	public static double getMaxCorrection() {
 		return MAXCORRECTION;
@@ -88,7 +89,7 @@ public class ChartPotential {
 	/**
 	 * おまけです。スコアを入力するとグレードを返してくれます。
 	 * @param score
-	 * @retur スコアに応じたグレード
+	 * @return スコアに応じたグレード
 	 */
 	public static String getGrade(int score) {
 		String result = "D";
@@ -106,6 +107,26 @@ public class ChartPotential {
 			result = "B";
 		} else if(score >= 8600000) {
 			result = "C";
+		}
+		return result;
+	}
+
+	/**
+	 * おまけその２
+	 * 指定した楽曲の日本語名を返します
+	 * @param pack
+	 * @param title
+	 * @return
+	 */
+	public static String getTitle(String pack, String title) {
+		String result = "";
+		String filepath = "http://hizumiaoba.html.xdomain.jp/json/" + pack + ".json";
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			JsonNode node = mapper.readTree(new URL(filepath));
+			result = node.get(title).get("Title").asText();
+		} catch(IOException e) {
+			e.printStackTrace();
 		}
 		return result;
 	}

@@ -11,11 +11,11 @@ import javax.swing.JButton;
 
 public class ArcaeaCalculationTool {
 
+
 	public static JButton SwichToPotential = new JButton(Messages.MSGSwitchToPotential.toString());
 	public static JButton SwitchToStep = new JButton(Messages.MSGSwitchToExp.toString());
 	public static JButton SwitchToExp = new JButton(Messages.MSGSwitchToExp.toString());
 	public static JButton SwitchToperformance = new JButton(Messages.MSGSwitchToPerformance.toString());
 	public static JButton SwitchToChartConstant = new JButton(Messages.MSGSwitchToChartConstant.toString());
-
 
 }
