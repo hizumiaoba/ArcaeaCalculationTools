@@ -1,6 +1,9 @@
 package main;
 
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
 /**
  * Arcaeaをプレイする上で重要になってくる色々なパラメータを計算するものです。
@@ -9,7 +12,7 @@ import javax.swing.JButton;
  * @author hizumi
  */
 
-public class ArcaeaCalculationTool {
+public class ArcaeaCalculationTool extends JFrame implements ActionListener{
 
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
@@ -51,5 +54,11 @@ public class ArcaeaCalculationTool {
 	public static JButton SwitchToExp = new JButton(Messages.MSGSwitchToExp.toString());
 	public static JButton SwitchToperformance = new JButton(Messages.MSGSwitchToPerformance.toString());
 	public static JButton SwitchToChartConstant = new JButton(Messages.MSGSwitchToChartConstant.toString());
+	public static JButton EndButton = new JButton(Messages.MSGEnd.toString());
+	public static JButton CalcButton = new jbutton(Messages.MSGCalc.toString());
+
+	public ArcaeaCalculationTool() {
+
+	}
 
 }
