@@ -45,7 +45,7 @@ public class ArcaeaCalculationTool {
 			"Zero_Hikari",
 			"Fracture_Hikari",
 			"T"
-	}
+	};
 	public static JButton SwichToPotential = new JButton(Messages.MSGSwitchToPotential.toString());
 	public static JButton SwitchToStep = new JButton(Messages.MSGSwitchToExp.toString());
 	public static JButton SwitchToExp = new JButton(Messages.MSGSwitchToExp.toString());
