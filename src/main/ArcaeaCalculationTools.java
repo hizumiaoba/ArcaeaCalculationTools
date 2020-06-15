@@ -56,27 +56,27 @@ public class ArcaeaCalculationTools extends JFrame {
 	};
 
 	private JPanel contentPane;
-	private final JPanel SwitchBtn = new JPanel();
+	private final JPanel PotentialSwitchBtn = new JPanel();
 	private final JButton btnPotentialSwitchToSteps = new JButton();
 	private final JButton btnPotentialSwitchtoexp = new JButton();
 	private final JButton btnPotentialSwitchToPerformance = new JButton();
 	private final JPanel Potential = new JPanel();
 	private final JButton btnPotentialSwitchToChartConstant = new JButton("SwitchToChartConstant");
-	private final JPanel SystemBtn = new JPanel();
+	private final JPanel PotentialSystemBtn = new JPanel();
 	private final JButton btnPotentialCalculation = new JButton("Calculation");
 	private final JButton btnPotentialSwitchToPotential = new JButton("SwitchToPotential");
 	private final JButton btnPotentialEndProgram = new JButton("End Program");
 	private final JPanel Steps = new JPanel();
 	CardLayout cardLayout = new CardLayout();
-	private final JPanel panel = new JPanel();
-	private final JButton button = new JButton("SwitchToPotential");
-	private final JButton button_1 = new JButton();
-	private final JButton button_2 = new JButton();
-	private final JButton button_3 = new JButton();
-	private final JButton button_4 = new JButton("SwitchToChartConstant");
-	private final JPanel panel_1 = new JPanel();
-	private final JButton button_5 = new JButton("Calculation");
-	private final JButton button_6 = new JButton("End Program");
+	private final JPanel StepsSwitchBtn = new JPanel();
+	private final JButton btnStepsSwitchToPotential = new JButton("SwitchToPotential");
+	private final JButton btnStepsSwitchToSteps = new JButton();
+	private final JButton btnStepsSwitchToExp = new JButton();
+	private final JButton btnStepsSwitchToPerforance = new JButton();
+	private final JButton btnStepsSwitchToChartConstant = new JButton("SwitchToChartConstant");
+	private final JPanel StepsSystemBtn = new JPanel();
+	private final JButton btnStepsCalculation = new JButton("Calculation");
+	private final JButton btnStepsEndProgram = new JButton("End Program");
 	private final JPanel Exp = new JPanel();
 	private final JPanel Performance = new JPanel();
 	private final JPanel ChartConstant = new JPanel();
@@ -138,40 +138,67 @@ public class ArcaeaCalculationTools extends JFrame {
 
 		contentPane.add(Potential, "name_21300422118700");
 		Potential.setLayout(null);
-		SwitchBtn.setBounds(0, 0, 175, 130);
-		Potential.add(SwitchBtn);
-		SwitchBtn.setLayout(null);
+		PotentialSwitchBtn.setBounds(0, 0, 175, 130);
+		Potential.add(PotentialSwitchBtn);
+		PotentialSwitchBtn.setLayout(null);
+		btnPotentialSwitchToPotential.setActionCommand("Potential");
 		btnPotentialSwitchToPotential.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cardLayout.show(contentPane, btnPotentialSwitchToPotential.getActionCommand());
+				cardLayout.show(contentPane, e.getActionCommand());
 			}
 		});
 		btnPotentialSwitchToPotential.setBounds(0, 0, 175, 21);
 
-		SwitchBtn.add(btnPotentialSwitchToPotential);
-		btnPotentialSwitchToSteps.setActionCommand("SwitchToSteps");
+		PotentialSwitchBtn.add(btnPotentialSwitchToPotential);
+		btnPotentialSwitchToSteps.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cardLayout.show(contentPane, e.getActionCommand());
+			}
+		});
+		btnPotentialSwitchToSteps.setActionCommand("Steps");
 		btnPotentialSwitchToSteps.setText("SwitchToSteps");
 		btnPotentialSwitchToSteps.setBounds(0, 25, 175, 21);
-		SwitchBtn.add(btnPotentialSwitchToSteps);
-		btnPotentialSwitchtoexp.setActionCommand("SwitchToExp");
+		PotentialSwitchBtn.add(btnPotentialSwitchToSteps);
+		btnPotentialSwitchtoexp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cardLayout.show(contentPane, e.getActionCommand());
+			}
+		});
+		btnPotentialSwitchtoexp.setActionCommand("Exp");
 		btnPotentialSwitchtoexp.setText("SwitchToExp");
 		btnPotentialSwitchtoexp.setBounds(0, 50, 175, 21);
-		SwitchBtn.add(btnPotentialSwitchtoexp);
-		btnPotentialSwitchToPerformance.setActionCommand("SwitchToPerformance");
+		PotentialSwitchBtn.add(btnPotentialSwitchtoexp);
+		btnPotentialSwitchToPerformance.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cardLayout.show(contentPane, e.getActionCommand());
+			}
+		});
+		btnPotentialSwitchToPerformance.setActionCommand("Performance");
 		btnPotentialSwitchToPerformance.setText("SwitchToPerformance");
 		btnPotentialSwitchToPerformance.setBounds(0, 75, 175, 21);
 
-		SwitchBtn.add(btnPotentialSwitchToPerformance);
+		PotentialSwitchBtn.add(btnPotentialSwitchToPerformance);
+		btnPotentialSwitchToChartConstant.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cardLayout.show(contentPane, e.getActionCommand());
+			}
+		});
+		btnPotentialSwitchToChartConstant.setActionCommand("ChartConstant");
 		btnPotentialSwitchToChartConstant.setBounds(0, 100, 175, 21);
 
-		SwitchBtn.add(btnPotentialSwitchToChartConstant);
-		SystemBtn.setBounds(1067, 561, 175, 100);
-		Potential.add(SystemBtn);
-		SystemBtn.setLayout(null);
-		btnPotentialCalculation.setActionCommand("");
+		PotentialSwitchBtn.add(btnPotentialSwitchToChartConstant);
+		PotentialSystemBtn.setBounds(1067, 561, 175, 100);
+		Potential.add(PotentialSystemBtn);
+		PotentialSystemBtn.setLayout(null);
+		btnPotentialCalculation.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		btnPotentialCalculation.setActionCommand("PotentialCalc");
 		btnPotentialCalculation.setBounds(0, 0, 175, 40);
 
-		SystemBtn.add(btnPotentialCalculation);
+		PotentialSystemBtn.add(btnPotentialCalculation);
 		btnPotentialEndProgram.setActionCommand("");
 		btnPotentialEndProgram.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -180,47 +207,80 @@ public class ArcaeaCalculationTools extends JFrame {
 		});
 		btnPotentialEndProgram.setBounds(0, 60, 175, 40);
 
-		SystemBtn.add(btnPotentialEndProgram);
+		PotentialSystemBtn.add(btnPotentialEndProgram);
 
 		contentPane.add(Steps, "name_21300451057000");
 		Steps.setLayout(null);
-		panel.setLayout(null);
-		panel.setBounds(0, 0, 175, 130);
+		StepsSwitchBtn.setLayout(null);
+		StepsSwitchBtn.setBounds(0, 0, 175, 130);
 
-		Steps.add(panel);
-		button.setBounds(0, 0, 175, 21);
+		Steps.add(StepsSwitchBtn);
+		btnStepsSwitchToPotential.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cardLayout.show(contentPane, e.getActionCommand());
+			}
+		});
+		btnStepsSwitchToPotential.setActionCommand("Potential");
+		btnStepsSwitchToPotential.setBounds(0, 0, 175, 21);
 
-		panel.add(button);
-		button_1.setText("SwitchToSteps");
-		button_1.setActionCommand("SwitchToSteps");
-		button_1.setBounds(0, 25, 175, 21);
+		StepsSwitchBtn.add(btnStepsSwitchToPotential);
+		btnStepsSwitchToSteps.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cardLayout.show(contentPane, e.getActionCommand());
+			}
+		});
+		btnStepsSwitchToSteps.setText("SwitchToSteps");
+		btnStepsSwitchToSteps.setActionCommand("Steps");
+		btnStepsSwitchToSteps.setBounds(0, 25, 175, 21);
 
-		panel.add(button_1);
-		button_2.setText("SwitchToExp");
-		button_2.setActionCommand("SwitchToExp");
-		button_2.setBounds(0, 50, 175, 21);
+		StepsSwitchBtn.add(btnStepsSwitchToSteps);
+		btnStepsSwitchToExp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cardLayout.show(contentPane, e.getActionCommand());
+			}
+		});
+		btnStepsSwitchToExp.setText("SwitchToExp");
+		btnStepsSwitchToExp.setActionCommand("Exp");
+		btnStepsSwitchToExp.setBounds(0, 50, 175, 21);
 
-		panel.add(button_2);
-		button_3.setText("SwitchToPerformance");
-		button_3.setActionCommand("SwitchToPerformance");
-		button_3.setBounds(0, 75, 175, 21);
+		StepsSwitchBtn.add(btnStepsSwitchToExp);
+		btnStepsSwitchToPerforance.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cardLayout.show(contentPane, e.getActionCommand());
+			}
+			
+		});
+		btnStepsSwitchToPerforance.setText("SwitchToPerformance");
+		btnStepsSwitchToPerforance.setActionCommand("Performance");
+		btnStepsSwitchToPerforance.setBounds(0, 75, 175, 21);
 
-		panel.add(button_3);
-		button_4.setBounds(0, 100, 175, 21);
+		StepsSwitchBtn.add(btnStepsSwitchToPerforance);
+		btnStepsSwitchToChartConstant.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cardLayout.show(contentPane, e.getActionCommand());
+			}
+		});
+		btnStepsSwitchToChartConstant.setActionCommand("ChartConstant");
+		btnStepsSwitchToChartConstant.setBounds(0, 100, 175, 21);
 
-		panel.add(button_4);
-		panel_1.setLayout(null);
-		panel_1.setBounds(0, 0, 175, 100);
+		StepsSwitchBtn.add(btnStepsSwitchToChartConstant);
+		StepsSystemBtn.setLayout(null);
+		StepsSystemBtn.setBounds(1067, 561, 175, 100);
 
-		Steps.add(panel_1);
-		button_5.setActionCommand("");
-		button_5.setBounds(0, 0, 175, 40);
+		Steps.add(StepsSystemBtn);
+		btnStepsCalculation.setActionCommand("StepsCalc");
+		btnStepsCalculation.setBounds(0, 0, 175, 40);
 
-		panel_1.add(button_5);
-		button_6.setActionCommand("");
-		button_6.setBounds(0, 60, 175, 40);
+		StepsSystemBtn.add(btnStepsCalculation);
+		btnStepsEndProgram.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		btnStepsEndProgram.setActionCommand("");
+		btnStepsEndProgram.setBounds(0, 60, 175, 40);
 
-		panel_1.add(button_6);
+		StepsSystemBtn.add(btnStepsEndProgram);
 
 		contentPane.add(Exp, "name_22401836273200");
 		panel_2.setLayout(null);
