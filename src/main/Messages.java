@@ -18,7 +18,9 @@ import java.util.ResourceBundle;
 		MSGSwitchToStep,
 		MSGSwitchToExp,
 		MSGSwitchToPerformance,
-		MSGSwitchToChartConstant;
+		MSGSwitchToChartConstant,
+		MSGCalc,
+		MSGEnd;
 
 	@Override public String toString() {
 		try {
