@@ -64,7 +64,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Fantasia_Hikari",
 			"Sonata_Tairitsu",
 			"Tempest_Tairitsu",
-			
+			"Stella",
 	};
 
 	private JPanel contentPane;
