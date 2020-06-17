@@ -19,6 +19,10 @@ import javax.swing.border.EmptyBorder;
  */
 
 public class ArcaeaCalculationTools extends JFrame {
+	/**
+	 * Serial Wrote at 20200/06/17
+	 */
+	private static final long serialVersionUID = 1796950740947109175L;
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
 			"Arcaea",
@@ -52,7 +56,15 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Luna",
 			"Zero_Hikari",
 			"Fracture_Hikari",
-			"T"
+			"Tairitsu_Trin",
+			"Hikari_Seine",
+			"Saya",
+			"Grievous_Lady_Tairitsu_Chuni_Penguin",
+			"Kanae",
+			"Fantasia_Hikari",
+			"Sonata_Tairitsu",
+			"Tempest_Tairitsu",
+			
 	};
 
 	private JPanel contentPane;
