@@ -25,7 +25,7 @@ public class Steps {
 		return calcSteps(pack, title, difficulty, score, stats);
 	}
 
-	public static double calcSteps(String pack, String title, String difficulty, int score, int partner) {
+	private static double calcSteps(String pack, String title, String difficulty, int score, int partner) {
 		double res = 0.00;
 			res = 2.5 + (2.45 * Math.sqrt(ChartPotential.calcChartPotential(pack, title, difficulty, score)));
 			return res * (partner * 0.02);
