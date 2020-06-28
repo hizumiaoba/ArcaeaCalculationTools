@@ -1,7 +1,9 @@
 package main;
 
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -126,6 +128,8 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel ExpVerLabel = new JLabel(VERSION);
 	private final JLabel PerformanceVerLabel = new JLabel(VERSION);
 	private final JLabel ChartConstVerLabel = new JLabel(VERSION);
+	private final JLabel lblNewLabel = new JLabel("計算結果");
+	private final JLabel label = new JLabel("計算結果");
 
 	/**
 	 * Launch the application.
@@ -230,6 +234,18 @@ public class ArcaeaCalculationTools extends JFrame {
 		PotentialSystemBtn.add(btnPotentialEndProgram);
 		PotentialVerLabel.setBounds(1051, 0, 203, 32);
 		Potential.add(PotentialVerLabel);
+		lblNewLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		lblNewLabel.setSize(new Dimension(60, 20));
+		lblNewLabel.setMaximumSize(new Dimension(60, 20));
+		lblNewLabel.setBounds(268, 167, 80, 24);
+
+		Potential.add(lblNewLabel);
+		label.setSize(new Dimension(60, 20));
+		label.setMaximumSize(new Dimension(60, 20));
+		label.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		label.setBounds(0, 0, 80, 24);
+
+		Potential.add(label);
 		Steps.setName("Steps");
 
 		contentPane.add(Steps, Steps.getName());
