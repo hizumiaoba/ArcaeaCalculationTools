@@ -20,7 +20,13 @@ import java.util.ResourceBundle;
 		MSGSwitchToPerformance,
 		MSGSwitchToChartConstant,
 		MSGCalc,
-		MSGEnd;
+		MSGEnd,
+		MSGResult,
+		MSGPotential,
+		MSGStep,
+		MSGExp,
+		MSGPerformance,
+		MSGChartConstant;
 
 	@Override public String toString() {
 		try {
