@@ -128,8 +128,11 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel ExpVerLabel = new JLabel(VERSION);
 	private final JLabel PerformanceVerLabel = new JLabel(VERSION);
 	private final JLabel ChartConstVerLabel = new JLabel(VERSION);
-	private final JLabel lblNewLabel = new JLabel("計算結果");
-	private final JLabel label = new JLabel("計算結果");
+	private final JLabel PotentialLabel = new JLabel(Messages.MSGPotential.toString());
+	private final JLabel StepsLabel = new JLabel(Messages.MSGStep.toString());
+	private final JLabel ExpLabel = new JLabel(Messages.MSGExp.toString());
+	private final JLabel PerformanceLabel = new JLabel(Messages.MSGPerformance.toString());
+	private final JLabel ChartConstantLabel = new JLabel(Messages.MSGChartConstant.toString());
 
 	/**
 	 * Launch the application.
@@ -234,18 +237,12 @@ public class ArcaeaCalculationTools extends JFrame {
 		PotentialSystemBtn.add(btnPotentialEndProgram);
 		PotentialVerLabel.setBounds(1051, 0, 203, 32);
 		Potential.add(PotentialVerLabel);
-		lblNewLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		lblNewLabel.setSize(new Dimension(60, 20));
-		lblNewLabel.setMaximumSize(new Dimension(60, 20));
-		lblNewLabel.setBounds(268, 167, 80, 24);
+		PotentialLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		PotentialLabel.setSize(new Dimension(60, 20));
+		PotentialLabel.setMaximumSize(new Dimension(60, 20));
+		PotentialLabel.setBounds(510, 49, 160, 24);
 
-		Potential.add(lblNewLabel);
-		label.setSize(new Dimension(60, 20));
-		label.setMaximumSize(new Dimension(60, 20));
-		label.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		label.setBounds(0, 0, 80, 24);
-
-		Potential.add(label);
+		Potential.add(PotentialLabel);
 		Steps.setName("Steps");
 
 		contentPane.add(Steps, Steps.getName());
@@ -323,6 +320,10 @@ public class ArcaeaCalculationTools extends JFrame {
 		StepVerLabel.setBounds(1051, 0, 203, 30);
 
 		Steps.add(StepVerLabel);
+		StepsLabel.setBounds(510, 49, 108, 24);
+		Steps.add(StepsLabel);
+		StepsLabel.setMaximumSize(new Dimension(60, 20));
+		StepsLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		Exp.setName("Exp");
 
 		contentPane.add(Exp, Exp.getName());
@@ -399,6 +400,11 @@ public class ArcaeaCalculationTools extends JFrame {
 		ExpVerLabel.setBounds(1051, 0, 203, 30);
 
 		Exp.add(ExpVerLabel);
+		ExpLabel.setMaximumSize(new Dimension(60, 20));
+		ExpLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		ExpLabel.setBounds(510, 49, 100, 24);
+
+		Exp.add(ExpLabel);
 		Performance.setName("Performance");
 
 		contentPane.add(Performance, Performance.getName());
@@ -475,6 +481,11 @@ public class ArcaeaCalculationTools extends JFrame {
 		PerformanceVerLabel.setBounds(1051, 0, 203, 30);
 
 		Performance.add(PerformanceVerLabel);
+		PerformanceLabel.setMaximumSize(new Dimension(60, 20));
+		PerformanceLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		PerformanceLabel.setBounds(510, 49, 240, 24);
+
+		Performance.add(PerformanceLabel);
 		ChartConstant.setName("ChartConstant");
 
 		contentPane.add(ChartConstant, ChartConstant.getName());
@@ -550,6 +561,10 @@ public class ArcaeaCalculationTools extends JFrame {
 		ChartcontantSystemBtn.add(btnChartConstEndProgram);
 		ChartConstVerLabel.setBounds(1051, 0, 203, 30);
 		ChartConstant.add(ChartConstVerLabel);
+		ChartConstantLabel.setBounds(510, 49, 120, 24);
+		ChartConstant.add(ChartConstantLabel);
+		ChartConstantLabel.setMaximumSize(new Dimension(60, 20));
+		ChartConstantLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 
 	}
 }
