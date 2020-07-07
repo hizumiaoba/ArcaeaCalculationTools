@@ -7,10 +7,11 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -136,7 +137,8 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel ChartConstantLabel = new JLabel(Messages.MSGChartConstant.toString());
 	private final JLabel PotentialResultLabel = new JLabel("計算結果");
 	private final JLabel PotentialResultshowLabel = new JLabel();
-	private final JList list = new JList();
+	private final JComboBox<String> packBox = new JComboBox<>();
+	private final JComboBox<String> songBox = new JComboBox<String>();
 
 	/**
 	 * Launch the application.
@@ -248,17 +250,23 @@ public class ArcaeaCalculationTools extends JFrame {
 
 		Potential.add(PotentialLabel);
 		PotentialResultLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		PotentialResultLabel.setBounds(331, 415, 80, 24);
+		PotentialResultLabel.setBounds(334, 309, 80, 24);
 
 		Potential.add(PotentialResultLabel);
 		PotentialResultshowLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		PotentialResultshowLabel.setBounds(429, 415, 307, 24);
 
 		Potential.add(PotentialResultshowLabel);
-		list.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 12));
-		list.setBounds(331, 118, 480, 100);
+		packBox.setModel(new DefaultComboBoxModel<String>(PACK_NAME));
+		packBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
+		packBox.setBounds(90, 232, 204, 27);
 
-		Potential.add(list);
+		Potential.add(packBox);
+		songBox.setModel(new DefaultComboBoxModel(new String[] {"SONGTITLE"}));
+		songBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
+		songBox.setBounds(406, 232, 204, 27);
+
+		Potential.add(songBox);
 		Steps.setName("Steps");
 
 		contentPane.add(Steps, Steps.getName());

@@ -19,6 +19,9 @@ public class ChartPotential {
 	// 譜面定数へ加算される最大の補正値です。PMをとると、譜面定数＋この値で固定となります。
 	private static final double MAXCORRECTION = 2.00;
 
+	public static final String[] getSongKey(String pack) {
+	}
+
 	/**
 	 * 譜面別ポテンシャルを計算します。計算式はArcaea Wikiに記載されている式を採用しています。
 	 * @param pack ポテンシャルを求めたい楽曲のパックを指定します。
