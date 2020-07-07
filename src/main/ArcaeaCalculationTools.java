@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -133,6 +134,9 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel ExpLabel = new JLabel(Messages.MSGExp.toString());
 	private final JLabel PerformanceLabel = new JLabel(Messages.MSGPerformance.toString());
 	private final JLabel ChartConstantLabel = new JLabel(Messages.MSGChartConstant.toString());
+	private final JLabel PotentialResultLabel = new JLabel("計算結果");
+	private final JLabel PotentialResultshowLabel = new JLabel();
+	private final JList list = new JList();
 
 	/**
 	 * Launch the application.
@@ -243,6 +247,18 @@ public class ArcaeaCalculationTools extends JFrame {
 		PotentialLabel.setBounds(510, 49, 160, 24);
 
 		Potential.add(PotentialLabel);
+		PotentialResultLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		PotentialResultLabel.setBounds(331, 415, 80, 24);
+
+		Potential.add(PotentialResultLabel);
+		PotentialResultshowLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		PotentialResultshowLabel.setBounds(429, 415, 307, 24);
+
+		Potential.add(PotentialResultshowLabel);
+		list.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 12));
+		list.setBounds(331, 118, 480, 100);
+
+		Potential.add(list);
 		Steps.setName("Steps");
 
 		contentPane.add(Steps, Steps.getName());
