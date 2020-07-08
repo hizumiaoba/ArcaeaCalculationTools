@@ -31,7 +31,6 @@ public class ArcaeaCalculationTools extends JFrame {
 	 */
 	private static final long serialVersionUID = 1796950740947109175L;
 	private static final String VERSION = "Ver. 0.1 -Developed by @hizumiaoba-";
-	private static String[] songTitles;
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
 			"Arcaea",
@@ -278,13 +277,13 @@ public class ArcaeaCalculationTools extends JFrame {
 		PotentialReflectionPackBtn.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
 		PotentialReflectionPackBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (packBox.getSelectedIndex() != -1) {
-					songTitles = ChartPotential.getSongKey((String) packBox.getSelectedItem());
-				}
+				System.out.println("Reflection trigger fired.");
+				String[] songTitles = ChartPotential.getSongKey((String) packBox.getSelectedItem());
 				songModel.removeAllElements();
 				for (String songName : songTitles) {
 					songModel.addElement(songName);
 				}
+				songBox.setModel(songModel);
 			}
 		});
 		PotentialReflectionPackBtn.setActionCommand("Reflection");
