@@ -41,7 +41,7 @@ public class ChartPotential {
 			e.printStackTrace();
 		}
 		String[] result = new String[temp.size()];
-		for(int i = 0; i < temp.size() - 1; i++) {
+		for(int i = 0; i < temp.size(); i++) {
 			result[i] = temp.get(i);
 		}
 		return result;
