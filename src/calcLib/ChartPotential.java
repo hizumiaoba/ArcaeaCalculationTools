@@ -2,6 +2,8 @@ package calcLib;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,7 +21,30 @@ public class ChartPotential {
 	// 譜面定数へ加算される最大の補正値です。PMをとると、譜面定数＋この値で固定となります。
 	private static final double MAXCORRECTION = 2.00;
 
+	/**
+	 * JSONライブラリでKeyとなっている英語曲名を取得、String配列で返します。
+	 * おそらくもっといい書き方があると思うので要修正
+	 * @param pack 取得するパックの名前を指定
+	 * @return result 取得した英語曲名の配列
+	 */
 	public static final String[] getSongKey(String pack) {
+		ArrayList<String> temp = new ArrayList<>();
+		String filepath = "http://hizumiaoba.html.xdomain.jp/json/" + pack + ".json";
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			JsonNode node = mapper.readTree(new URL(filepath));
+			Iterator<String> fieldnames = node.fieldNames();
+			while (fieldnames.hasNext()) {
+				temp.add(fieldnames.next());
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		String[] result = new String[temp.size()];
+		for(int i = 0; i < temp.size() - 1; i++) {
+			result[i] = temp.get(i);
+		}
+		return result;
 	}
 
 	/**

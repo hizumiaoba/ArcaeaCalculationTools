@@ -15,6 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import calcLib.ChartPotential;
+
 /*
  * /**
  * Arcaeaをプレイする上で重要になってくる色々なパラメータを計算するものです。
@@ -29,6 +31,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	 */
 	private static final long serialVersionUID = 1796950740947109175L;
 	private static final String VERSION = "Ver. 0.1 -Developed by @hizumiaoba-";
+	private static String[] songTitles;
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
 			"Arcaea",
@@ -139,6 +142,8 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel PotentialResultshowLabel = new JLabel();
 	private final JComboBox<String> packBox = new JComboBox<>();
 	private final JComboBox<String> songBox = new JComboBox<String>();
+	private DefaultComboBoxModel<String> songModel = new DefaultComboBoxModel<>();
+	private final JButton PotentialReflectionPackBtn = new JButton("ReflectionPack");
 
 	/**
 	 * Launch the application.
@@ -257,16 +262,35 @@ public class ArcaeaCalculationTools extends JFrame {
 		PotentialResultshowLabel.setBounds(429, 415, 307, 24);
 
 		Potential.add(PotentialResultshowLabel);
+		packBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		packBox.setModel(new DefaultComboBoxModel<String>(PACK_NAME));
 		packBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
 		packBox.setBounds(90, 232, 204, 27);
 
 		Potential.add(packBox);
-		songBox.setModel(new DefaultComboBoxModel(new String[] {"SONGTITLE"}));
 		songBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
 		songBox.setBounds(406, 232, 204, 27);
 
 		Potential.add(songBox);
+		PotentialReflectionPackBtn.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
+		PotentialReflectionPackBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (packBox.getSelectedIndex() != -1) {
+					songTitles = ChartPotential.getSongKey((String) packBox.getSelectedItem());
+				}
+				songModel.removeAllElements();
+				for (String songName : songTitles) {
+					songModel.addElement(songName);
+				}
+			}
+		});
+		PotentialReflectionPackBtn.setActionCommand("Reflection");
+		PotentialReflectionPackBtn.setBounds(406, 269, 204, 29);
+
+		Potential.add(PotentialReflectionPackBtn);
 		Steps.setName("Steps");
 
 		contentPane.add(Steps, Steps.getName());
