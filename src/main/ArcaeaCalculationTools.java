@@ -30,7 +30,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	 * Serial Wrote at 20200/06/17
 	 */
 	private static final long serialVersionUID = 1796950740947109175L;
-	private static final String VERSION = "Ver. 0.1 -Developed by @hizumiaoba-";
+	private static final String VERSION = "Ver. 0.1.0-Alpha";
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
 			"Arcaea",
@@ -137,7 +137,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel ExpLabel = new JLabel(Messages.MSGCalcExp.toString());
 	private final JLabel PerformanceLabel = new JLabel(Messages.MSGCalcPerformance.toString());
 	private final JLabel ChartConstantLabel = new JLabel(Messages.MSGChartConstant.toString());
-	private final JLabel PotentialResultLabel = new JLabel("計算結果");
+	private final JLabel PotentialResultLabel = new JLabel(Messages.MSGResult.toString());
 	private final JLabel PotentialResultshowLabel = new JLabel();
 	private final JComboBox<String> packBox = new JComboBox<>();
 	private final JComboBox<String> songBox = new JComboBox<String>();
@@ -260,7 +260,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		btnPotentialEndProgram.setBounds(0, 60, 175, 40);
 
 		PotentialSystemBtn.add(btnPotentialEndProgram);
-		PotentialVerLabel.setBounds(1051, 0, 203, 32);
+		PotentialVerLabel.setBounds(1161, 10, 81, 13);
 		Potential.add(PotentialVerLabel);
 		PotentialLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		PotentialLabel.setSize(new Dimension(60, 20));
@@ -405,7 +405,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		btnStepsEndProgram.setBounds(0, 60, 175, 40);
 
 		StepsSystemBtn.add(btnStepsEndProgram);
-		StepVerLabel.setBounds(1051, 0, 203, 30);
+		StepVerLabel.setBounds(1161, 10, 81, 13);
 
 		Steps.add(StepVerLabel);
 		StepsLabel.setBounds(510, 49, 108, 24);
@@ -486,7 +486,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		btnExpEndProgram.setBounds(0, 60, 175, 40);
 
 		ExpSystemBtn.add(btnExpEndProgram);
-		ExpVerLabel.setBounds(1051, 0, 203, 30);
+		ExpVerLabel.setBounds(1161, 10, 81, 13);
 
 		Exp.add(ExpVerLabel);
 		ExpLabel.setMaximumSize(new Dimension(60, 20));
@@ -568,7 +568,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		btnPerformanceEndProgram.setBounds(0, 60, 175, 40);
 
 		PerformanceSystemBtn.add(btnPerformanceEndProgram);
-		PerformanceVerLabel.setBounds(1051, 0, 203, 30);
+		PerformanceVerLabel.setBounds(1161, 10, 81, 13);
 
 		Performance.add(PerformanceVerLabel);
 		PerformanceLabel.setMaximumSize(new Dimension(60, 20));
@@ -650,7 +650,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		btnChartConstEndProgram.setBounds(0, 60, 175, 40);
 
 		ChartcontantSystemBtn.add(btnChartConstEndProgram);
-		ChartConstVerLabel.setBounds(1051, 0, 203, 30);
+		ChartConstVerLabel.setBounds(1161, 10, 81, 13);
 		ChartConstant.add(ChartConstVerLabel);
 		ChartConstantLabel.setBounds(510, 49, 120, 24);
 		ChartConstant.add(ChartConstantLabel);
