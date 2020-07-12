@@ -1,6 +1,9 @@
 package calcLib;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -57,6 +60,12 @@ public class ChartPotential {
 	 */
 	public static double calcChartPotential(String pack, String title, String difficulty, int score) {
 		double result = 0.00;
+		BigDecimal bd = null;
+		BigDecimal bd100 = new BigDecimal("1.00");
+		BigDecimal bd200 = new BigDecimal(String.valueOf(getMaxCorrection()));
+		BigDecimal bdConst = new BigDecimal(String.valueOf(getChartConstant(pack, title, difficulty)));
+		BigDecimal bdCase2 = new BigDecimal(String.valueOf(score - 9800000), new MathContext(20, RoundingMode.DOWN)).divide(new BigDecimal("200000"), 20, RoundingMode.DOWN);
+		BigDecimal bdCase3 = new BigDecimal(String.valueOf(score - 9500000), new MathContext(20, RoundingMode.DOWN)).divide(new BigDecimal("300000"), 20, RoundingMode.DOWN);
 		int switcher = 0;
 		if(score >= 10000000) {
 			switcher = 1;
@@ -68,15 +77,21 @@ public class ChartPotential {
 
 		switch (switcher) {
 		case 1:
-			result = getChartConstant(pack, title, difficulty) + MAXCORRECTION;
+			bd = bdConst.add(bd200);
+			bd.setScale(20, RoundingMode.DOWN);
+			result = Double.parseDouble(String.format("%.2f", bd));
 			break;
 
 		case 2:
-			result = getChartConstant(pack, title, difficulty) + 1.00 + (score - 9800000)/200000;
+			bd = bdConst.add(bd100).add(bdCase2);
+			bd.setScale(20, RoundingMode.DOWN);
+			result = Double.parseDouble(String.format("%.2f", bd));
 			break;
 
 		case 3:
-			result = getChartConstant(pack, title, difficulty) + (score - 9500000)/300000;
+			bd = bdConst.add(bdCase3);
+			bd.setScale(20, RoundingMode.DOWN);
+			result = Double.parseDouble(String.format("%.2f", bd));
 			break;
 
 		default:
