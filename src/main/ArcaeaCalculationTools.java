@@ -7,11 +7,16 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import calcLib.ChartPotential;
 
 /*
  * /**
@@ -26,7 +31,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	 * Serial Wrote at 20200/06/17
 	 */
 	private static final long serialVersionUID = 1796950740947109175L;
-	private static final String VERSION = "Ver. 0.1 -Developed by @hizumiaoba-";
+	private static final String VERSION = "Ver. 0.1.0-Alpha";
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
 			"Arcaea",
@@ -79,9 +84,9 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JPanel Potential = new JPanel();
 	private final JButton btnPotentialSwitchToChartConstant = new JButton("SwitchToChartConstant");
 	private final JPanel PotentialSystemBtn = new JPanel();
-	private final JButton btnPotentialCalculation = new JButton("Calculation");
+	private final JButton btnPotentialCalculation = new JButton(Messages.MSGCalc.toString());
 	private final JButton btnPotentialSwitchToPotential = new JButton("SwitchToPotential");
-	private final JButton btnPotentialEndProgram = new JButton("End Program");
+	private final JButton btnPotentialEndProgram = new JButton(Messages.MSGEnd.toString());
 	private final JPanel Steps = new JPanel();
 	CardLayout cardLayout = new CardLayout();
 	private final JPanel StepsSwitchBtn = new JPanel();
@@ -92,7 +97,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JButton btnStepsSwitchToChartConstant = new JButton("SwitchToChartConstant");
 	private final JPanel StepsSystemBtn = new JPanel();
 	private final JButton btnStepsCalculation = new JButton("Calculation");
-	private final JButton btnStepsEndProgram = new JButton("End Program");
+	private final JButton btnStepsEndProgram = new JButton(Messages.MSGEnd.toString());
 	private final JPanel Exp = new JPanel();
 	private final JPanel Performance = new JPanel();
 	private final JPanel ChartConstant = new JPanel();
@@ -104,7 +109,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JButton btnExpSwitchToChartConstant = new JButton("SwitchToChartConstant");
 	private final JPanel ExpSystemBtn = new JPanel();
 	private final JButton btnExpCalculation = new JButton("Calculation");
-	private final JButton btnExpEndProgram = new JButton("End Program");
+	private final JButton btnExpEndProgram = new JButton(Messages.MSGEnd.toString());
 	private final JPanel PerformanceSwitchBtn = new JPanel();
 	private final JButton btnPerformanceSwitchToPotential = new JButton("SwitchToPotential");
 	private final JButton btnPerformanceSwitchToSteps = new JButton();
@@ -113,7 +118,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JButton btnPerformanceSwitchToChartConstant = new JButton("SwitchToChartConstant");
 	private final JPanel PerformanceSystemBtn = new JPanel();
 	private final JButton btnPerformanceCalculation = new JButton("Calculation");
-	private final JButton btnPerformanceEndProgram = new JButton("End Program");
+	private final JButton btnPerformanceEndProgram = new JButton(Messages.MSGEnd.toString());
 	private final JPanel ChartconstantSwitchBtn = new JPanel();
 	private final JButton btnChartConstSwitchToPotential = new JButton("SwitchToPotential");
 	private final JButton btnChartConstSwitchToSteps = new JButton();
@@ -122,17 +127,34 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JButton btnChartConstSwitchToChartConst = new JButton("SwitchToChartConstant");
 	private final JPanel ChartcontantSystemBtn = new JPanel();
 	private final JButton btnChartConstCalculation = new JButton("Calculation");
-	private final JButton btnChartConstEndProgram = new JButton("End Program");
+	private final JButton btnChartConstEndProgram = new JButton(Messages.MSGEnd.toString());
 	private final JLabel PotentialVerLabel = new JLabel(VERSION);
 	private final JLabel StepVerLabel = new JLabel(VERSION);
 	private final JLabel ExpVerLabel = new JLabel(VERSION);
 	private final JLabel PerformanceVerLabel = new JLabel(VERSION);
 	private final JLabel ChartConstVerLabel = new JLabel(VERSION);
-	private final JLabel PotentialLabel = new JLabel(Messages.MSGPotential.toString());
-	private final JLabel StepsLabel = new JLabel(Messages.MSGStep.toString());
-	private final JLabel ExpLabel = new JLabel(Messages.MSGExp.toString());
-	private final JLabel PerformanceLabel = new JLabel(Messages.MSGPerformance.toString());
+	private final JLabel PotentialLabel = new JLabel(Messages.MSGCalcPotential.toString());
+	private final JLabel StepsLabel = new JLabel(Messages.MSGCalcStep.toString());
+	private final JLabel ExpLabel = new JLabel(Messages.MSGCalcExp.toString());
+	private final JLabel PerformanceLabel = new JLabel(Messages.MSGCalcPerformance.toString());
 	private final JLabel ChartConstantLabel = new JLabel(Messages.MSGChartConstant.toString());
+	private final JLabel PotentialResultLabel = new JLabel(Messages.MSGResult.toString());
+	private final JLabel PotentialScoreResultShowLabel = new JLabel("Your results will show here.");
+	private final JComboBox<String> packBox = new JComboBox<>();
+	private final JComboBox<String> songBox = new JComboBox<String>();
+	private DefaultComboBoxModel<String> songModel = new DefaultComboBoxModel<>();
+	private final JComboBox<String> DifficultyBox = new JComboBox<String>();
+	private final JLabel PotentialPackNameLabel = new JLabel(Messages.MSGSongPack.toString());
+	private final JLabel PotentialSongTitleLabel = new JLabel(Messages.MSGSongTitle.toString());;
+	private final JLabel PotentialChartDifficultyLabel = new JLabel(Messages.MSGChartDifficulty.toString());;
+	private final JLabel potentialSongInfLabel = new JLabel(Messages.MSGSongInformation.toString());
+	private final JLabel PotentialSongTitleEngLabel = new JLabel("The song informations will show here.");
+	private final JLabel PotentialSongTitleJpnLabel = new JLabel("The song informations will show here.");
+	private final JLabel PotentialChartConstantLabel = new JLabel("The song informations will show here.");
+	private final JTextField PotentialScoreField = new JTextField();
+	private final JLabel PotentialYourScoreLabel = new JLabel(Messages.MSGShowScore.toString());
+	private final JLabel PotentialChartPotentialResultShowLabel = new JLabel();
+	private final JLabel PotentialGradeResultsShowLabel = new JLabel();
 
 	/**
 	 * Launch the application.
@@ -154,6 +176,9 @@ public class ArcaeaCalculationTools extends JFrame {
 	 * Create the frame.
 	 */
 	public ArcaeaCalculationTools() {
+		PotentialScoreField.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 12));
+		PotentialScoreField.setBounds(1067, 193, 150, 19);
+		PotentialScoreField.setColumns(10);
 		setTitle("ArcaeaCalculationTools - hizumiaoba");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1280, 720);
@@ -219,7 +244,31 @@ public class ArcaeaCalculationTools extends JFrame {
 		PotentialSystemBtn.setLayout(null);
 		btnPotentialCalculation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Calculation trigger fired.");
+				int score = Integer.parseInt(PotentialScoreField.getText());
+				String pack = packBox.getSelectedItem().toString();
+				String titleEng = songBox.getSelectedItem().toString();
+				String difficulty = DifficultyBox.getSelectedItem().toString();
+				String titleJpn = ChartPotential.getTitle(pack, titleEng).toString();
+				double chartconst = ChartPotential.getChartConstant(pack, titleEng, difficulty);
+				double potential = ChartPotential.calcChartPotential(pack, titleEng, difficulty, score);
+				PotentialSongTitleEngLabel
+						.setText(Messages.MSGEnglishTitle.toString() + " : " + titleEng);
+				PotentialSongTitleJpnLabel.setText(Messages.MSGJapaneseTitle.toString() + " : " + titleJpn);
+				PotentialChartConstantLabel.setText(Messages.MSGChartConstant.toString() + " : " + chartconst);
 
+				PotentialScoreResultShowLabel.setText(Messages.MSGShowScore.toString() + " : " + score);
+				PotentialChartPotentialResultShowLabel
+						.setText(String.valueOf(Messages.MSGShowChartPotential.toString() + " : " + potential));
+				PotentialGradeResultsShowLabel.setText(Messages.MSGShowGrade + " : " + ChartPotential.getGrade(score));
+				System.out.println("calculation complete.\n"
+						+ "score : " + score
+						+ "\npack : " + pack
+						+ "\ntitleEng : " + titleEng
+						+ "\ndifficulty : " + difficulty
+						+ "\ntitleJpn : " + titleJpn
+						+ "\nchartconst : " + chartconst
+						+ "\npotential : " + potential);
 			}
 		});
 		btnPotentialCalculation.setActionCommand("PotentialCalc");
@@ -229,13 +278,14 @@ public class ArcaeaCalculationTools extends JFrame {
 		btnPotentialEndProgram.setActionCommand("");
 		btnPotentialEndProgram.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Requested exit by pressing button.");
 				System.exit(0);
 			}
 		});
 		btnPotentialEndProgram.setBounds(0, 60, 175, 40);
 
 		PotentialSystemBtn.add(btnPotentialEndProgram);
-		PotentialVerLabel.setBounds(1051, 0, 203, 32);
+		PotentialVerLabel.setBounds(1161, 10, 81, 13);
 		Potential.add(PotentialVerLabel);
 		PotentialLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		PotentialLabel.setSize(new Dimension(60, 20));
@@ -243,6 +293,84 @@ public class ArcaeaCalculationTools extends JFrame {
 		PotentialLabel.setBounds(510, 49, 160, 24);
 
 		Potential.add(PotentialLabel);
+		PotentialResultLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		PotentialResultLabel.setBounds(656, 237, 80, 24);
+
+		Potential.add(PotentialResultLabel);
+		packBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Reflection trigger fired.");
+				String[] songTitles = ChartPotential.getSongKey((String) packBox.getSelectedItem());
+				for (String song : songTitles) {
+					System.out.println(song);
+				}
+				songModel.removeAllElements();
+				for (String songName : songTitles) {
+					songModel.addElement(songName);
+				}
+				songBox.setModel(songModel);
+			}
+		});
+		packBox.setModel(new DefaultComboBoxModel<String>(PACK_NAME));
+		packBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
+		packBox.setBounds(175, 188, 204, 27);
+
+		Potential.add(packBox);
+		songBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
+		songBox.setBounds(486, 188, 330, 27);
+
+		Potential.add(songBox);
+		DifficultyBox.setModel(new DefaultComboBoxModel(new String[] { "PST", "PRS", "FTR", "BYD" }));
+		DifficultyBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
+		DifficultyBox.setBounds(910, 188, 102, 27);
+
+		Potential.add(DifficultyBox);
+		PotentialPackNameLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
+		PotentialPackNameLabel.setBounds(208, 157, 105, 21);
+		Potential.add(PotentialPackNameLabel);
+		PotentialSongTitleLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
+		PotentialSongTitleLabel.setBounds(591, 157, 105, 21);
+
+		Potential.add(PotentialSongTitleLabel);
+		PotentialChartDifficultyLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
+		PotentialChartDifficultyLabel.setBounds(886, 157, 150, 21);
+
+		Potential.add(PotentialChartDifficultyLabel);
+		potentialSongInfLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		potentialSongInfLabel.setBounds(208, 237, 80, 24);
+
+		Potential.add(potentialSongInfLabel);
+		PotentialSongTitleEngLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		PotentialSongTitleEngLabel.setBounds(46, 271, 395, 24);
+
+		Potential.add(PotentialSongTitleEngLabel);
+		PotentialSongTitleJpnLabel.setBounds(46, 310, 395, 24);
+		Potential.add(PotentialSongTitleJpnLabel);
+		PotentialSongTitleJpnLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		PotentialChartConstantLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		PotentialChartConstantLabel.setBounds(46, 351, 395, 24);
+
+		Potential.add(PotentialChartConstantLabel);
+
+		Potential.add(PotentialScoreField);
+		PotentialYourScoreLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
+		PotentialYourScoreLabel.setBounds(1102, 157, 115, 21);
+
+		Potential.add(PotentialYourScoreLabel);
+		PotentialScoreResultShowLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		PotentialScoreResultShowLabel.setBounds(510, 271, 307, 24);
+
+		Potential.add(PotentialScoreResultShowLabel);
+		PotentialChartPotentialResultShowLabel.setText("Your results will show here.");
+		PotentialChartPotentialResultShowLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		PotentialChartPotentialResultShowLabel.setBounds(510, 316, 307, 24);
+
+		Potential.add(PotentialChartPotentialResultShowLabel);
+		PotentialGradeResultsShowLabel.setText("Your results will show here.");
+		PotentialGradeResultsShowLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		PotentialGradeResultsShowLabel.setBounds(510, 357, 307, 24);
+
+		Potential.add(PotentialGradeResultsShowLabel);
 		Steps.setName("Steps");
 
 		contentPane.add(Steps, Steps.getName());
@@ -310,6 +438,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		StepsSystemBtn.add(btnStepsCalculation);
 		btnStepsEndProgram.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Requested exit by pressing button.");
 				System.exit(0);
 			}
 		});
@@ -317,7 +446,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		btnStepsEndProgram.setBounds(0, 60, 175, 40);
 
 		StepsSystemBtn.add(btnStepsEndProgram);
-		StepVerLabel.setBounds(1051, 0, 203, 30);
+		StepVerLabel.setBounds(1161, 10, 81, 13);
 
 		Steps.add(StepVerLabel);
 		StepsLabel.setBounds(510, 49, 108, 24);
@@ -390,6 +519,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		ExpSystemBtn.add(btnExpCalculation);
 		btnExpEndProgram.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Requested exit by pressing button.");
 				System.exit(0);
 			}
 		});
@@ -397,7 +527,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		btnExpEndProgram.setBounds(0, 60, 175, 40);
 
 		ExpSystemBtn.add(btnExpEndProgram);
-		ExpVerLabel.setBounds(1051, 0, 203, 30);
+		ExpVerLabel.setBounds(1161, 10, 81, 13);
 
 		Exp.add(ExpVerLabel);
 		ExpLabel.setMaximumSize(new Dimension(60, 20));
@@ -471,6 +601,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		PerformanceSystemBtn.add(btnPerformanceCalculation);
 		btnPerformanceEndProgram.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Requested exit by pressing button.");
 				System.exit(0);
 			}
 		});
@@ -478,7 +609,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		btnPerformanceEndProgram.setBounds(0, 60, 175, 40);
 
 		PerformanceSystemBtn.add(btnPerformanceEndProgram);
-		PerformanceVerLabel.setBounds(1051, 0, 203, 30);
+		PerformanceVerLabel.setBounds(1161, 10, 81, 13);
 
 		Performance.add(PerformanceVerLabel);
 		PerformanceLabel.setMaximumSize(new Dimension(60, 20));
@@ -552,6 +683,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		ChartcontantSystemBtn.add(btnChartConstCalculation);
 		btnChartConstEndProgram.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Requested exit by pressing button.");
 				System.exit(0);
 			}
 		});
@@ -559,7 +691,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		btnChartConstEndProgram.setBounds(0, 60, 175, 40);
 
 		ChartcontantSystemBtn.add(btnChartConstEndProgram);
-		ChartConstVerLabel.setBounds(1051, 0, 203, 30);
+		ChartConstVerLabel.setBounds(1161, 10, 81, 13);
 		ChartConstant.add(ChartConstVerLabel);
 		ChartConstantLabel.setBounds(510, 49, 120, 24);
 		ChartConstant.add(ChartConstantLabel);

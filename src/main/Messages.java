@@ -22,11 +22,21 @@ import java.util.ResourceBundle;
 		MSGCalc,
 		MSGEnd,
 		MSGResult,
-		MSGPotential,
-		MSGStep,
-		MSGExp,
-		MSGPerformance,
-		MSGChartConstant;
+		MSGCalcPotential,
+		MSGCalcStep,
+		MSGCalcExp,
+		MSGCalcPerformance,
+		MSGCalcChartConstant,
+		MSGSongInformation,
+		MSGSongPack,
+		MSGSongTitle,
+		MSGChartDifficulty,
+		MSGEnglishTitle,
+		MSGJapaneseTitle,
+		MSGChartConstant,
+		MSGShowScore,
+		MSGShowChartPotential,
+		MSGShowGrade;
 
 	@Override public String toString() {
 		try {
