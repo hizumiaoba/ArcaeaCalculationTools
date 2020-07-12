@@ -139,7 +139,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel PerformanceLabel = new JLabel(Messages.MSGCalcPerformance.toString());
 	private final JLabel ChartConstantLabel = new JLabel(Messages.MSGChartConstant.toString());
 	private final JLabel PotentialResultLabel = new JLabel(Messages.MSGResult.toString());
-	private final JLabel PotentialScoreResultShowLabel = new JLabel("Your results will show here.");
+	private final JLabel PotentialScoreResultShowLabel = new JLabel("");
 	private final JComboBox<String> packBox = new JComboBox<>();
 	private final JComboBox<String> songBox = new JComboBox<String>();
 	private DefaultComboBoxModel<String> songModel = new DefaultComboBoxModel<>();
@@ -148,9 +148,9 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel PotentialSongTitleLabel = new JLabel(Messages.MSGSongTitle.toString());;
 	private final JLabel PotentialChartDifficultyLabel = new JLabel(Messages.MSGChartDifficulty.toString());;
 	private final JLabel potentialSongInfLabel = new JLabel(Messages.MSGSongInformation.toString());
-	private final JLabel PotentialSongTitleEngLabel = new JLabel("The song informations will show here.");
-	private final JLabel PotentialSongTitleJpnLabel = new JLabel("The song informations will show here.");
-	private final JLabel PotentialChartConstantLabel = new JLabel("The song informations will show here.");
+	private final JLabel PotentialSongTitleEngLabel = new JLabel("");
+	private final JLabel PotentialSongTitleJpnLabel = new JLabel("");
+	private final JLabel PotentialChartConstantLabel = new JLabel("");
 	private final JTextField PotentialScoreField = new JTextField();
 	private final JLabel PotentialYourScoreLabel = new JLabel(Messages.MSGShowScore.toString());
 	private final JLabel PotentialChartPotentialResultShowLabel = new JLabel();
@@ -285,7 +285,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		btnPotentialEndProgram.setBounds(0, 60, 175, 40);
 
 		PotentialSystemBtn.add(btnPotentialEndProgram);
-		PotentialVerLabel.setBounds(1161, 10, 81, 13);
+		PotentialVerLabel.setBounds(1136, 10, 106, 13);
 		Potential.add(PotentialVerLabel);
 		PotentialLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		PotentialLabel.setSize(new Dimension(60, 20));
@@ -361,12 +361,10 @@ public class ArcaeaCalculationTools extends JFrame {
 		PotentialScoreResultShowLabel.setBounds(510, 271, 307, 24);
 
 		Potential.add(PotentialScoreResultShowLabel);
-		PotentialChartPotentialResultShowLabel.setText("Your results will show here.");
 		PotentialChartPotentialResultShowLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
 		PotentialChartPotentialResultShowLabel.setBounds(510, 316, 307, 24);
 
 		Potential.add(PotentialChartPotentialResultShowLabel);
-		PotentialGradeResultsShowLabel.setText("Your results will show here.");
 		PotentialGradeResultsShowLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
 		PotentialGradeResultsShowLabel.setBounds(510, 357, 307, 24);
 
