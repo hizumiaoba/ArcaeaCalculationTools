@@ -100,6 +100,44 @@ public class ChartPotential {
 		return result < 0.00 ? 0.00 : result;
 	}
 
+	public static BigDecimal calcChartPotentialWithBD(String pack, String title, String difficulty, int score) {
+		BigDecimal bd = null;
+		BigDecimal bd100 = new BigDecimal("1.00");
+		BigDecimal bd200 = new BigDecimal(String.valueOf(getMaxCorrection()));
+		BigDecimal bdConst = new BigDecimal(String.valueOf(getChartConstant(pack, title, difficulty)));
+		BigDecimal bdCase2 = new BigDecimal(String.valueOf(score - 9800000), new MathContext(20, RoundingMode.DOWN)).divide(new BigDecimal("200000"), 20, RoundingMode.DOWN);
+		BigDecimal bdCase3 = new BigDecimal(String.valueOf(score - 9500000), new MathContext(20, RoundingMode.DOWN)).divide(new BigDecimal("300000"), 20, RoundingMode.DOWN);
+		int switcher = 0;
+		if(score >= 10000000) {
+			switcher = 1;
+		} else if(score >= 9800000) {
+			switcher = 2;
+		} else {
+			switcher = 3;
+		}
+
+		switch (switcher) {
+		case 1:
+			bd = bdConst.add(bd200);
+			bd.setScale(20, RoundingMode.DOWN);
+			break;
+
+		case 2:
+			bd = bdConst.add(bd100).add(bdCase2);
+			bd.setScale(20, RoundingMode.DOWN);
+			break;
+
+		case 3:
+			bd = bdConst.add(bdCase3);
+			bd.setScale(20, RoundingMode.DOWN);
+			break;
+
+		default:
+			break;
+		}
+		return bd.compareTo(BigDecimal.ZERO) == -1 ? null : bd;
+	}
+
 
 	/**
 	 *  独自に作成したJSONライブラリから譜面定数を取得します。
