@@ -35,7 +35,7 @@ public class Exp {
 			750
 	};
 
-	public static double calcExp(String pack, String title, String difficulty, int score) {
+	public static int calcExp(String pack, String title, String difficulty, int score) {
 		return (int)ChartPotential.calcChartPotential(pack, title, difficulty, score) * 3;
 	}
 
