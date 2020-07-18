@@ -1,5 +1,7 @@
 package calcLib;
 
+import java.math.BigDecimal;
+
 public class PerformanceRatio {
 
 
@@ -11,5 +13,19 @@ public class PerformanceRatio {
 			res = (8 / 9) + Math.sqrt(ChartPotential.calcChartPotential(pack, title, difficulty, score) * (13 / 10));
 		}
 		return res;
+	}
+
+	public static BigDecimal calcPerformanceWithBD(String pack, String title, String difficulty, int score, boolean isComplete) {
+		BigDecimal compCorr = null;
+		BigDecimal potential = new BigDecimal(String.valueOf(Math.sqrt(ChartPotential.calcChartPotential(pack, title, difficulty, score))));
+		BigDecimal corr = new BigDecimal("1.3");
+		if(isComplete) {
+			compCorr = new BigDecimal(String.valueOf(8 / 3));
+			compCorr.add(potential).multiply(corr);
+		}else {
+			compCorr = new BigDecimal(String.valueOf(8 / 9));
+			compCorr.add(potential).multiply(corr);
+		}
+		return compCorr.compareTo(BigDecimal.ZERO) == -1 || compCorr == null ? null : compCorr;
 	}
 }
