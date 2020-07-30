@@ -82,10 +82,10 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JButton btnPotentialSwitchtoexp = new JButton();
 	private final JButton btnPotentialSwitchToPerformance = new JButton();
 	private final JPanel Potential = new JPanel();
-	private final JButton btnPotentialSwitchToChartConstant = new JButton("SwitchToChartConstant");
+	private final JButton btnPotentialSwitchToChartConstant = new JButton(Messages.MSGSwitchToChartConstant.toString());
 	private final JPanel PotentialSystemBtn = new JPanel();
 	private final JButton btnPotentialCalculation = new JButton(Messages.MSGCalc.toString());
-	private final JButton btnPotentialSwitchToPotential = new JButton("SwitchToPotential");
+	private final JButton btnPotentialSwitchToPotential = new JButton(Messages.MSGSwitchToPotential.toString());
 	private final JButton btnPotentialEndProgram = new JButton(Messages.MSGEnd.toString());
 	private final JPanel Steps = new JPanel();
 	CardLayout cardLayout = new CardLayout();
@@ -94,7 +94,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JButton btnStepsSwitchToSteps = new JButton();
 	private final JButton btnStepsSwitchToExp = new JButton();
 	private final JButton btnStepsSwitchToPerforance = new JButton();
-	private final JButton btnStepsSwitchToChartConstant = new JButton("SwitchToChartConstant");
+	private final JButton btnStepsSwitchToChartConstant = new JButton(Messages.MSGSwitchToChartConstant.toString());
 	private final JPanel StepsSystemBtn = new JPanel();
 	private final JButton btnStepsCalculation = new JButton("Calculation");
 	private final JButton btnStepsEndProgram = new JButton(Messages.MSGEnd.toString());
@@ -106,7 +106,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JButton btnExpSwitchToSteps = new JButton();
 	private final JButton btnExpSwitchToExp = new JButton();
 	private final JButton btnExpSwitchToPerformance = new JButton();
-	private final JButton btnExpSwitchToChartConstant = new JButton("SwitchToChartConstant");
+	private final JButton btnExpSwitchToChartConstant = new JButton(Messages.MSGSwitchToChartConstant.toString());
 	private final JPanel ExpSystemBtn = new JPanel();
 	private final JButton btnExpCalculation = new JButton("Calculation");
 	private final JButton btnExpEndProgram = new JButton(Messages.MSGEnd.toString());
@@ -115,7 +115,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JButton btnPerformanceSwitchToSteps = new JButton();
 	private final JButton btnPerformanceSwitchToExp = new JButton();
 	private final JButton btnPerformanceSwitchToPerformance = new JButton();
-	private final JButton btnPerformanceSwitchToChartConstant = new JButton("SwitchToChartConstant");
+	private final JButton btnPerformanceSwitchToChartConstant = new JButton(Messages.MSGSwitchToChartConstant.toString());
 	private final JPanel PerformanceSystemBtn = new JPanel();
 	private final JButton btnPerformanceCalculation = new JButton("Calculation");
 	private final JButton btnPerformanceEndProgram = new JButton(Messages.MSGEnd.toString());
@@ -124,7 +124,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JButton btnChartConstSwitchToSteps = new JButton();
 	private final JButton btnChartConstSwitchToExp = new JButton();
 	private final JButton btnChartConstSwitchToPerformance = new JButton();
-	private final JButton btnChartConstSwitchToChartConst = new JButton("SwitchToChartConstant");
+	private final JButton btnChartConstSwitchToChartConst = new JButton(Messages.MSGSwitchToChartConstant.toString());
 	private final JPanel ChartcontantSystemBtn = new JPanel();
 	private final JButton btnChartConstCalculation = new JButton("Calculation");
 	private final JButton btnChartConstEndProgram = new JButton(Messages.MSGEnd.toString());
@@ -185,7 +185,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new CardLayout(0, 0));
+		contentPane.setLayout(cardLayout);
 		Potential.setName("Potential");
 
 		contentPane.add(Potential, Potential.getName());
@@ -444,7 +444,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		btnStepsEndProgram.setBounds(0, 60, 175, 40);
 
 		StepsSystemBtn.add(btnStepsEndProgram);
-		StepVerLabel.setBounds(1161, 10, 81, 13);
+		StepVerLabel.setBounds(1136, 10, 106, 13);
 
 		Steps.add(StepVerLabel);
 		StepsLabel.setBounds(510, 49, 108, 24);
@@ -525,7 +525,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		btnExpEndProgram.setBounds(0, 60, 175, 40);
 
 		ExpSystemBtn.add(btnExpEndProgram);
-		ExpVerLabel.setBounds(1161, 10, 81, 13);
+		ExpVerLabel.setBounds(1136, 10, 106, 13);
 
 		Exp.add(ExpVerLabel);
 		ExpLabel.setMaximumSize(new Dimension(60, 20));
@@ -607,7 +607,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		btnPerformanceEndProgram.setBounds(0, 60, 175, 40);
 
 		PerformanceSystemBtn.add(btnPerformanceEndProgram);
-		PerformanceVerLabel.setBounds(1161, 10, 81, 13);
+		PerformanceVerLabel.setBounds(1136, 10, 106, 13);
 
 		Performance.add(PerformanceVerLabel);
 		PerformanceLabel.setMaximumSize(new Dimension(60, 20));
@@ -689,7 +689,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		btnChartConstEndProgram.setBounds(0, 60, 175, 40);
 
 		ChartcontantSystemBtn.add(btnChartConstEndProgram);
-		ChartConstVerLabel.setBounds(1161, 10, 81, 13);
+		ChartConstVerLabel.setBounds(1136, 10, 106, 13);
 		ChartConstant.add(ChartConstVerLabel);
 		ChartConstantLabel.setBounds(510, 49, 120, 24);
 		ChartConstant.add(ChartConstantLabel);
