@@ -155,6 +155,9 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel PotentialYourScoreLabel = new JLabel(Messages.MSGShowScore.toString());
 	private final JLabel PotentialChartPotentialResultShowLabel = new JLabel();
 	private final JLabel PotentialGradeResultsShowLabel = new JLabel();
+	private final JLabel label = new JLabel("収録パック");
+	private final JLabel label_1 = new JLabel("楽曲名");
+	private final JLabel label_2 = new JLabel("譜面別難易度");
 
 	/**
 	 * Launch the application.
@@ -451,6 +454,18 @@ public class ArcaeaCalculationTools extends JFrame {
 		Steps.add(StepsLabel);
 		StepsLabel.setMaximumSize(new Dimension(60, 20));
 		StepsLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		label.setFont(new Font("Dialog", Font.PLAIN, 18));
+		label.setBounds(182, 189, 105, 21);
+		
+		Steps.add(label);
+		label_1.setFont(new Font("Dialog", Font.PLAIN, 18));
+		label_1.setBounds(468, 181, 105, 21);
+		
+		Steps.add(label_1);
+		label_2.setFont(new Font("Dialog", Font.PLAIN, 18));
+		label_2.setBounds(859, 187, 150, 21);
+		
+		Steps.add(label_2);
 		Exp.setName("Exp");
 
 		contentPane.add(Exp, Exp.getName());
