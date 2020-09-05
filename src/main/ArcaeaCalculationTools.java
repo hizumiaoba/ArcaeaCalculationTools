@@ -185,7 +185,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new CardLayout(0, 0));
+		contentPane.setLayout(cardLayout);
 		Potential.setName("Potential");
 
 		contentPane.add(Potential, Potential.getName());
