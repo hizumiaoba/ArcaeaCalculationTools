@@ -39,22 +39,18 @@ public class Exp {
 		return (int)ChartPotential.calcChartPotential(pack, title, difficulty, score) * 3;
 	}
 
-	public static int requireExpToMax(int lv, int percentage, boolean isMaxThirty) {
+	public static int requireExpToMax(int lv, int percentage, boolean isAwakenable) {
 		int res = 0;
 		int tmp = 0;
 		for(int i = 0; i < lv -1; i++) {
 			tmp += REQUIRE_EXP[i];
 		}
 		tmp += (int)REQUIRE_EXP[lv - 1] * percentage / 100;
-		if(isMaxThirty) {
-			res = 12500 - tmp;
-		} else {
-			res = 5000 - tmp;
-		}
+		res = getMax(isAwakenable) - tmp;
 		return res < 0 ? 0 : res;
 	}
 
-	public static int getMax(boolean isMaxThirty) {
-		return isMaxThirty ? 12500 : 5000;
+	public static int getMax(boolean isAwakenable) {
+		return isAwakenable ? 12500 : 5000;
 	}
 }
