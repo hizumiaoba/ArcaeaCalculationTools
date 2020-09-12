@@ -31,7 +31,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	 * Serial Wrote at 20200/06/17
 	 */
 	private static final long serialVersionUID = 1796950740947109175L;
-	private static final String VERSION = "Ver. 0.1.0-Alpha";
+	private static final String VERSION = "Ver. 0.1.2-Alpha";
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
 			"Arcaea",
@@ -155,9 +155,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel PotentialYourScoreLabel = new JLabel(Messages.MSGShowScore.toString());
 	private final JLabel PotentialChartPotentialResultShowLabel = new JLabel();
 	private final JLabel PotentialGradeResultsShowLabel = new JLabel();
-	private final JLabel label = new JLabel("収録パック");
-	private final JLabel label_1 = new JLabel("楽曲名");
-	private final JLabel label_2 = new JLabel("譜面別難易度");
+	private final JLabel StepsPackLabel = new JLabel("収録パック");
 
 	/**
 	 * Launch the application.
@@ -454,18 +452,30 @@ public class ArcaeaCalculationTools extends JFrame {
 		Steps.add(StepsLabel);
 		StepsLabel.setMaximumSize(new Dimension(60, 20));
 		StepsLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		label.setFont(new Font("Dialog", Font.PLAIN, 18));
-		label.setBounds(182, 189, 105, 21);
-		
-		Steps.add(label);
-		label_1.setFont(new Font("Dialog", Font.PLAIN, 18));
-		label_1.setBounds(468, 181, 105, 21);
-		
-		Steps.add(label_1);
-		label_2.setFont(new Font("Dialog", Font.PLAIN, 18));
-		label_2.setBounds(859, 187, 150, 21);
-		
-		Steps.add(label_2);
+		StepsPackLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		StepsPackLabel.setBounds(165, 180, 100, 24);
+
+		Steps.add(StepsPackLabel);
+
+		JLabel StepsTitleLable = new JLabel("楽曲名");
+		StepsTitleLable.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		StepsTitleLable.setBounds(413, 180, 60, 24);
+		Steps.add(StepsTitleLable);
+
+		JLabel StepsScoreLabel = new JLabel("スコア");
+		StepsScoreLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		StepsScoreLabel.setBounds(613, 180, 60, 24);
+		Steps.add(StepsScoreLabel);
+
+		JLabel StepsLvLabel = new JLabel("レベル");
+		StepsLvLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		StepsLvLabel.setBounds(1058, 180, 60, 24);
+		Steps.add(StepsLvLabel);
+
+		JLabel StepsParterLabel = new JLabel("パートナー名");
+		StepsParterLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		StepsParterLabel.setBounds(797, 180, 120, 24);
+		Steps.add(StepsParterLabel);
 		Exp.setName("Exp");
 
 		contentPane.add(Exp, Exp.getName());
