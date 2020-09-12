@@ -1,5 +1,6 @@
 package calcLib;
 
+
 public class Exp {
 
 	private static final int[] REQUIRE_EXP = {
