@@ -36,7 +36,10 @@ import java.util.ResourceBundle;
 		MSGChartConstant,
 		MSGShowScore,
 		MSGShowChartPotential,
-		MSGShowGrade;
+		MSGShowGrade,
+		MSGLv,
+		MSGAwakened,
+		MSGPartnerName;
 
 	@Override public String toString() {
 		try {
