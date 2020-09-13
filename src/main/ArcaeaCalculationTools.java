@@ -58,22 +58,38 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Kou",
 			"Sapphire",
 			"Lethe",
-			"Axium_Tairitsu",
-			"Grievous_Lady_Tairitsu",
-			"Hikari_Fisica",
+			"Axium Tairitsu",
+			"Grievous Lady Tairitsu",
+			"Hikari&Fisica",
 			"Eto",
 			"Luna",
-			"Zero_Hikari",
-			"Fracture_Hikari",
-			"Tairitsu_Trin",
-			"Hikari_Seine",
+			"Zero Hikari",
+			"Fracture Hikari",
+			"Tairitsu&Trin",
+			"Hikari&Seine",
 			"Saya",
-			"Grievous_Lady_Tairitsu_Chuni_Penguin",
+			"Grievous Lady Tairitsu&Chuni Penguin",
 			"Kanae",
-			"Fantasia_Hikari",
-			"Sonata_Tairitsu",
-			"Tempest_Tairitsu",
+			"Fantasia Hikari",
+			"Sonata Tairitsu",
+			"Tempest Tairitsu",
 			"Stella",
+			"Ilith",
+			"Shirabe",
+			"Summer Hikari",
+			"Summer Tairitsu",
+			"Ayu",
+			"Winter Eto&Runa",
+			"Yume",
+			"Chuni Penguin",
+			"Haruna",
+			"Nono",
+			"MTA-XXX Pandora Nemesis",
+			"MDA-21 Regulus",
+			"Sia",
+			"DORO*C",
+			"E/S Primera Brillante",
+			"Summer Ilith"
 	};
 
 	private JPanel contentPane;
@@ -140,14 +156,14 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel ChartConstantLabel = new JLabel(Messages.MSGChartConstant.toString());
 	private final JLabel PotentialResultLabel = new JLabel(Messages.MSGResult.toString());
 	private final JLabel PotentialScoreResultShowLabel = new JLabel("");
-	private final JComboBox<String> packBox = new JComboBox<>();
-	private final JComboBox<String> songBox = new JComboBox<String>();
+	private final JComboBox<String> PotentialPackBox = new JComboBox<>();
+	private final JComboBox<String> PotentialSongBox = new JComboBox<String>();
 	private DefaultComboBoxModel<String> songModel = new DefaultComboBoxModel<>();
-	private final JComboBox<String> DifficultyBox = new JComboBox<String>();
+	private final JComboBox<String> PotentialDifficultyBox = new JComboBox<String>();
 	private final JLabel PotentialPackNameLabel = new JLabel(Messages.MSGSongPack.toString());
 	private final JLabel PotentialSongTitleLabel = new JLabel(Messages.MSGSongTitle.toString());;
 	private final JLabel PotentialChartDifficultyLabel = new JLabel(Messages.MSGChartDifficulty.toString());;
-	private final JLabel potentialSongInfLabel = new JLabel(Messages.MSGSongInformation.toString());
+	private final JLabel PotentialSongInfLabel = new JLabel(Messages.MSGSongInformation.toString());
 	private final JLabel PotentialSongTitleEngLabel = new JLabel("");
 	private final JLabel PotentialSongTitleJpnLabel = new JLabel("");
 	private final JLabel PotentialChartConstantLabel = new JLabel("");
@@ -156,6 +172,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel PotentialChartPotentialResultShowLabel = new JLabel();
 	private final JLabel PotentialGradeResultsShowLabel = new JLabel();
 	private final JLabel StepsPackLabel = new JLabel("収録パック");
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -247,9 +264,9 @@ public class ArcaeaCalculationTools extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Calculation trigger fired.");
 				int score = Integer.parseInt(PotentialScoreField.getText());
-				String pack = packBox.getSelectedItem().toString();
-				String titleEng = songBox.getSelectedItem().toString();
-				String difficulty = DifficultyBox.getSelectedItem().toString();
+				String pack = PotentialPackBox.getSelectedItem().toString();
+				String titleEng = PotentialSongBox.getSelectedItem().toString();
+				String difficulty = PotentialDifficultyBox.getSelectedItem().toString();
 				String titleJpn = ChartPotential.getTitle(pack, titleEng).toString();
 				double chartconst = ChartPotential.getChartConstant(pack, titleEng, difficulty);
 				double potential = ChartPotential.calcChartPotential(pack, titleEng, difficulty, score);
@@ -298,10 +315,10 @@ public class ArcaeaCalculationTools extends JFrame {
 		PotentialResultLabel.setBounds(656, 237, 80, 24);
 
 		Potential.add(PotentialResultLabel);
-		packBox.addActionListener(new ActionListener() {
+		PotentialPackBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Reflection trigger fired.");
-				String[] songTitles = ChartPotential.getSongKey((String) packBox.getSelectedItem());
+				String[] songTitles = ChartPotential.getSongKey((String) PotentialPackBox.getSelectedItem());
 				for (String song : songTitles) {
 					System.out.println(song);
 				}
@@ -309,23 +326,23 @@ public class ArcaeaCalculationTools extends JFrame {
 				for (String songName : songTitles) {
 					songModel.addElement(songName);
 				}
-				songBox.setModel(songModel);
+				PotentialSongBox.setModel(songModel);
 			}
 		});
-		packBox.setModel(new DefaultComboBoxModel<String>(PACK_NAME));
-		packBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
-		packBox.setBounds(175, 188, 204, 27);
+		PotentialPackBox.setModel(new DefaultComboBoxModel<String>(PACK_NAME));
+		PotentialPackBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
+		PotentialPackBox.setBounds(175, 188, 204, 27);
 
-		Potential.add(packBox);
-		songBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
-		songBox.setBounds(486, 188, 330, 27);
+		Potential.add(PotentialPackBox);
+		PotentialSongBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
+		PotentialSongBox.setBounds(486, 188, 330, 27);
 
-		Potential.add(songBox);
-		DifficultyBox.setModel(new DefaultComboBoxModel(new String[] { "PST", "PRS", "FTR", "BYD" }));
-		DifficultyBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
-		DifficultyBox.setBounds(910, 188, 102, 27);
+		Potential.add(PotentialSongBox);
+		PotentialDifficultyBox.setModel(new DefaultComboBoxModel(new String[] { "PST", "PRS", "FTR", "BYD" }));
+		PotentialDifficultyBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
+		PotentialDifficultyBox.setBounds(910, 188, 102, 27);
 
-		Potential.add(DifficultyBox);
+		Potential.add(PotentialDifficultyBox);
 		PotentialPackNameLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 18));
 		PotentialPackNameLabel.setBounds(208, 157, 105, 21);
 		Potential.add(PotentialPackNameLabel);
@@ -337,10 +354,10 @@ public class ArcaeaCalculationTools extends JFrame {
 		PotentialChartDifficultyLabel.setBounds(886, 157, 150, 21);
 
 		Potential.add(PotentialChartDifficultyLabel);
-		potentialSongInfLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		potentialSongInfLabel.setBounds(208, 237, 80, 24);
+		PotentialSongInfLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		PotentialSongInfLabel.setBounds(208, 237, 80, 24);
 
-		Potential.add(potentialSongInfLabel);
+		Potential.add(PotentialSongInfLabel);
 		PotentialSongTitleEngLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
 		PotentialSongTitleEngLabel.setBounds(46, 271, 395, 24);
 
@@ -453,18 +470,18 @@ public class ArcaeaCalculationTools extends JFrame {
 		StepsLabel.setMaximumSize(new Dimension(60, 20));
 		StepsLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		StepsPackLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		StepsPackLabel.setBounds(165, 180, 100, 24);
+		StepsPackLabel.setBounds(93, 180, 100, 24);
 
 		Steps.add(StepsPackLabel);
 
 		JLabel StepsTitleLable = new JLabel("楽曲名");
 		StepsTitleLable.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		StepsTitleLable.setBounds(413, 180, 60, 24);
+		StepsTitleLable.setBounds(359, 180, 60, 24);
 		Steps.add(StepsTitleLable);
 
 		JLabel StepsScoreLabel = new JLabel("スコア");
 		StepsScoreLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		StepsScoreLabel.setBounds(613, 180, 60, 24);
+		StepsScoreLabel.setBounds(543, 180, 60, 24);
 		Steps.add(StepsScoreLabel);
 
 		JLabel StepsLvLabel = new JLabel("レベル");
@@ -472,10 +489,51 @@ public class ArcaeaCalculationTools extends JFrame {
 		StepsLvLabel.setBounds(1058, 180, 60, 24);
 		Steps.add(StepsLvLabel);
 
-		JLabel StepsParterLabel = new JLabel("パートナー名");
-		StepsParterLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		StepsParterLabel.setBounds(797, 180, 120, 24);
-		Steps.add(StepsParterLabel);
+		JLabel StepsPartnerLabel = new JLabel("パートナー名");
+		StepsPartnerLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		StepsPartnerLabel.setBounds(797, 180, 120, 24);
+		Steps.add(StepsPartnerLabel);
+
+		JComboBox StepsPackBox = new JComboBox();
+		StepsPackBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		StepsPackBox.setBounds(38, 214, 214, 21);
+		StepsPackBox.setModel(new DefaultComboBoxModel<String>(PACK_NAME));
+		Steps.add(StepsPackBox);
+
+		JComboBox StepsSongBox = new JComboBox();
+		StepsSongBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		StepsSongBox.setBounds(284, 214, 194, 21);
+		Steps.add(StepsSongBox);
+
+		JComboBox StepsPartnerBox = new JComboBox(PARTNER_NAME);
+		StepsPartnerBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 14));
+		StepsPartnerBox.setBounds(687, 214, 314, 21);
+		Steps.add(StepsPartnerBox);
+
+		JComboBox StepsLvBox = new JComboBox();
+		StepsLvBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		StepsLvBox.setBounds(1038, 214, 106, 21);
+		Steps.add(StepsLvBox);
+
+		StepsPackBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Reflection trigger fired.");
+				String[] songTitles = ChartPotential.getSongKey((String) StepsPackBox.getSelectedItem());
+				for (String song : songTitles) {
+					System.out.println(song);
+				}
+				songModel.removeAllElements();
+				for (String songName : songTitles) {
+					songModel.addElement(songName);
+				}
+				StepsSongBox.setModel(songModel);
+			}
+		});
+
+		textField = new JTextField();
+		textField.setBounds(510, 215, 127, 19);
+		Steps.add(textField);
+		textField.setColumns(10);
 		Exp.setName("Exp");
 
 		contentPane.add(Exp, Exp.getName());
