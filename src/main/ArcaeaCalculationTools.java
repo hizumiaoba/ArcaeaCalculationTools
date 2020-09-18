@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -474,22 +475,22 @@ public class ArcaeaCalculationTools extends JFrame {
 
 		Steps.add(StepsPackLabel);
 
-		JLabel StepsTitleLable = new JLabel("楽曲名");
+		JLabel StepsTitleLable = new JLabel(Messages.MSGSongTitle.toString());
 		StepsTitleLable.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		StepsTitleLable.setBounds(359, 180, 60, 24);
 		Steps.add(StepsTitleLable);
 
-		JLabel StepsScoreLabel = new JLabel("スコア");
+		JLabel StepsScoreLabel = new JLabel(Messages.MSGShowScore.toString());
 		StepsScoreLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		StepsScoreLabel.setBounds(543, 180, 60, 24);
 		Steps.add(StepsScoreLabel);
 
-		JLabel StepsLvLabel = new JLabel("レベル");
+		JLabel StepsLvLabel = new JLabel(Messages.MSGLv.toString());
 		StepsLvLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		StepsLvLabel.setBounds(1058, 180, 60, 24);
 		Steps.add(StepsLvLabel);
 
-		JLabel StepsPartnerLabel = new JLabel("パートナー名");
+		JLabel StepsPartnerLabel = new JLabel(Messages.MSGPartnerName.toString());
 		StepsPartnerLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		StepsPartnerLabel.setBounds(797, 180, 120, 24);
 		Steps.add(StepsPartnerLabel);
@@ -534,6 +535,11 @@ public class ArcaeaCalculationTools extends JFrame {
 		textField.setBounds(510, 215, 127, 19);
 		Steps.add(textField);
 		textField.setColumns(10);
+
+		JCheckBox chkbxIsAwakened = new JCheckBox(Messages.MSGAwakened.toString());
+		chkbxIsAwakened.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		chkbxIsAwakened.setBounds(1038, 261, 103, 21);
+		Steps.add(chkbxIsAwakened);
 		Exp.setName("Exp");
 
 		contentPane.add(Exp, Exp.getName());
