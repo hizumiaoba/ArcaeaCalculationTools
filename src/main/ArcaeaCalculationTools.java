@@ -32,7 +32,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	 * Serial Wrote at 20200/06/17
 	 */
 	private static final long serialVersionUID = 1796950740947109175L;
-	private static final String VERSION = "Ver. 0.1.2-Alpha";
+	private static final String VERSION = "Ver. 0.2.0-Alpha";
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
 			"Arcaea",
@@ -172,8 +172,10 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel PotentialYourScoreLabel = new JLabel(Messages.MSGShowScore.toString());
 	private final JLabel PotentialChartPotentialResultShowLabel = new JLabel();
 	private final JLabel PotentialGradeResultsShowLabel = new JLabel();
-	private final JLabel StepsPackLabel = new JLabel("収録パック");
+	private final JLabel StepsPackLabel = new JLabel(Messages.MSGSongPack.toString());
 	private JTextField textField;
+	private JTextField textField_1;
+	private JLabel lblTempest;
 
 	/**
 	 * Launch the application.
@@ -540,6 +542,16 @@ public class ArcaeaCalculationTools extends JFrame {
 		chkbxIsAwakened.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
 		chkbxIsAwakened.setBounds(1038, 261, 103, 21);
 		Steps.add(chkbxIsAwakened);
+
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(1176, 304, 49, 19);
+		Steps.add(textField_1);
+
+		lblTempest = new JLabel(Messages.MSGForTempest.toString());
+		lblTempest.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		lblTempest.setBounds(1002, 300, 148, 24);
+		Steps.add(lblTempest);
 		Exp.setName("Exp");
 
 		contentPane.add(Exp, Exp.getName());

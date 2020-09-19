@@ -39,7 +39,8 @@ import java.util.ResourceBundle;
 		MSGShowGrade,
 		MSGLv,
 		MSGAwakened,
-		MSGPartnerName;
+		MSGPartnerName,
+		MSGForTempest;
 
 	@Override public String toString() {
 		try {
