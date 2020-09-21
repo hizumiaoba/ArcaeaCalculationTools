@@ -3,7 +3,7 @@ package calcLib;
 
 public class Exp {
 
-	private static final int[] REQUIRE_EXP = {
+	public static final int[] REQUIRE_EXP = {
 			0,
 			25,
 			25,
