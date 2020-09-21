@@ -460,6 +460,10 @@ public class ArcaeaCalculationTools extends JFrame {
 		StepsSystemBtn.setBounds(1067, 561, 175, 100);
 
 		Steps.add(StepsSystemBtn);
+		btnStepsCalculation.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnStepsCalculation.setActionCommand("StepsCalc");
 		btnStepsCalculation.setBounds(0, 0, 175, 40);
 
