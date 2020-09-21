@@ -189,9 +189,11 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel StepsSongTitleEngLabel = new JLabel("");
 	private final JLabel StepsSongTitleJpnLabel = new JLabel("");
 	private final JLabel StepsChartConstLabel = new JLabel("");
-	private final JLabel label = new JLabel("");
-	private final JLabel label_1 = new JLabel("");
-	private final JLabel label_2 = new JLabel("");
+	private final JLabel StepsScoreResultShowLabel = new JLabel("");
+	private final JLabel StepsStepResultShowLabel = new JLabel("");
+	private final JLabel StepsGradeResultShowLabel = new JLabel("");
+	private JComboBox<String> StepsDifficultyBox;
+	private JLabel StepsDifficultyLabel;
 
 	/**
 	 * Launch the application.
@@ -469,6 +471,31 @@ public class ArcaeaCalculationTools extends JFrame {
 		Steps.add(StepsSystemBtn);
 		btnStepsCalculation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Calculation trigger fired.");
+				int score = Integer.parseInt(StepsScoreField.getText());
+				String pack = StepsPackBox.getSelectedItem().toString();
+				String titleEng = StepsSongBox.getSelectedItem().toString();
+				String difficulty = StepsDifficultyBox.getSelectedItem().toString();
+				String titleJpn = ChartPotential.getTitle(pack, titleEng).toString();
+				double chartconst = ChartPotential.getChartConstant(pack, titleEng, difficulty);
+				double step = ChartPotential.calcChartPotential(pack, titleEng, difficulty, score);
+				StepsSongTitleEngLabel
+						.setText(Messages.MSGEnglishTitle.toString() + " : " + titleEng);
+				StepsSongTitleJpnLabel.setText(Messages.MSGJapaneseTitle.toString() + " : " + titleJpn);
+				StepsChartConstLabel.setText(Messages.MSGChartConstant.toString() + " : " + chartconst);
+
+				StepsScoreResultShowLabel.setText(Messages.MSGShowScore.toString() + " : " + score);
+				StepsStepResultShowLabel
+						.setText(String.valueOf(Messages.MSGShowSteps.toString() + " : " + step));
+				StepsGradeResultShowLabel.setText(Messages.MSGShowGrade + " : " + ChartPotential.getGrade(score));
+				System.out.println("calculation complete.\n"
+						+ "score : " + score
+						+ "\npack : " + pack
+						+ "\ntitleEng : " + titleEng
+						+ "\ndifficulty : " + difficulty
+						+ "\ntitleJpn : " + titleJpn
+						+ "\nchartconst : " + chartconst
+						+ "\nStep : " + step);
 			}
 		});
 		btnStepsCalculation.setActionCommand("StepsCalc");
@@ -502,15 +529,15 @@ public class ArcaeaCalculationTools extends JFrame {
 		Steps.add(StepsTitleLabel);
 
 		StepsScoreLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		StepsScoreLabel.setBounds(543, 180, 60, 24);
+		StepsScoreLabel.setBounds(641, 180, 60, 24);
 		Steps.add(StepsScoreLabel);
 
 		StepsLvLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		StepsLvLabel.setBounds(1058, 180, 60, 24);
+		StepsLvLabel.setBounds(1156, 180, 60, 24);
 		Steps.add(StepsLvLabel);
 
 		StepsPartnerLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		StepsPartnerLabel.setBounds(797, 180, 120, 24);
+		StepsPartnerLabel.setBounds(895, 180, 120, 24);
 		Steps.add(StepsPartnerLabel);
 
 		StepsPackBox.setModel(new DefaultComboBoxModel<String>(PACK_NAME));
@@ -524,12 +551,12 @@ public class ArcaeaCalculationTools extends JFrame {
 
 		StepsPartnerBox.setModel(new DefaultComboBoxModel<String>(PARTNER_NAME));
 		StepsPartnerBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 14));
-		StepsPartnerBox.setBounds(687, 214, 314, 21);
+		StepsPartnerBox.setBounds(785, 214, 314, 21);
 		Steps.add(StepsPartnerBox);
 		StepsLvBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
 
 		StepsLvBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
-		StepsLvBox.setBounds(1038, 214, 106, 21);
+		StepsLvBox.setBounds(1136, 214, 106, 21);
 		Steps.add(StepsLvBox);
 
 		StepsPackBox.addActionListener(new ActionListener() {
@@ -548,7 +575,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		});
 
 		StepsScoreField = new JTextField();
-		StepsScoreField.setBounds(510, 215, 127, 19);
+		StepsScoreField.setBounds(608, 215, 127, 19);
 		Steps.add(StepsScoreField);
 		StepsScoreField.setColumns(10);
 
@@ -585,18 +612,29 @@ public class ArcaeaCalculationTools extends JFrame {
 		StepsChartConstLabel.setBounds(24, 394, 395, 24);
 
 		Steps.add(StepsChartConstLabel);
-		label.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
-		label.setBounds(495, 304, 395, 24);
+		StepsScoreResultShowLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		StepsScoreResultShowLabel.setBounds(495, 304, 395, 24);
 
-		Steps.add(label);
-		label_1.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
-		label_1.setBounds(495, 343, 395, 24);
+		Steps.add(StepsScoreResultShowLabel);
+		StepsStepResultShowLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		StepsStepResultShowLabel.setBounds(495, 343, 395, 24);
 
-		Steps.add(label_1);
-		label_2.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
-		label_2.setBounds(495, 384, 395, 24);
+		Steps.add(StepsStepResultShowLabel);
+		StepsGradeResultShowLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		StepsGradeResultShowLabel.setBounds(495, 384, 395, 24);
 
-		Steps.add(label_2);
+		Steps.add(StepsGradeResultShowLabel);
+
+		StepsDifficultyBox = new JComboBox<String>();
+		StepsDifficultyBox.setModel(new DefaultComboBoxModel(new String[] {"PST", "PRS", "FTR", "BYD"}));
+		StepsDifficultyBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		StepsDifficultyBox.setBounds(490, 214, 104, 21);
+		Steps.add(StepsDifficultyBox);
+
+		StepsDifficultyLabel = new JLabel(Messages.MSGChartDifficulty.toString());
+		StepsDifficultyLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		StepsDifficultyLabel.setBounds(478, 180, 120, 24);
+		Steps.add(StepsDifficultyLabel);
 		Exp.setName("Exp");
 
 		contentPane.add(Exp, Exp.getName());

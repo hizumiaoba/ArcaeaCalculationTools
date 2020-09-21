@@ -22,10 +22,10 @@ public class Steps {
 	 * @param partner
 	 * @return
 	 */
-	private static double calcSteps(String pack, String title, String difficulty, int score, int partner) {
-		double res = 0.00;
-			res = 2.5 + (2.45 * Math.sqrt(ChartPotential.calcChartPotential(pack, title, difficulty, score)));
-			return res * (partner * 0.02);
+	public static double calcSteps(String pack, String title, String difficulty, int score, int partner) {
+		BigDecimal tempBigDecimal = calcStepsWithBD(pack, title, difficulty, score, partner);
+		double result = Double.parseDouble(String.format("%.2f", tempBigDecimal));
+		return result;
 	}
 
 	public static double calcSteps(String pack, String title, String difficulty, int score) {
