@@ -177,7 +177,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel StepsScoreLabel = new JLabel(Messages.MSGShowScore.toString());
 	private final JLabel StepsLvLabel = new JLabel(Messages.MSGLv.toString());
 	private final JLabel StepsPartnerLabel = new JLabel(Messages.MSGPartnerName.toString());
-	private final JComboBox<String> StepsPackBox = new JComboBox<String>(PACK_NAME);
+	private final JComboBox<String> StepsPackBox = new JComboBox<String>();
 	private final JComboBox<String> StepsSongBox = new JComboBox<String>();
 	private final JComboBox<String> StepsPartnerBox = new JComboBox<String>();
 	private final JComboBox<Integer> StepsLvBox = new JComboBox<Integer>();
@@ -506,6 +506,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		StepsPartnerLabel.setBounds(797, 180, 120, 24);
 		Steps.add(StepsPartnerLabel);
 
+		StepsPackBox.setModel(new DefaultComboBoxModel<String>(PACK_NAME));
 		StepsPackBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
 		StepsPackBox.setBounds(38, 214, 214, 21);
 		Steps.add(StepsPackBox);
@@ -514,6 +515,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		StepsSongBox.setBounds(284, 214, 194, 21);
 		Steps.add(StepsSongBox);
 
+		StepsPartnerBox.setModel(new DefaultComboBoxModel<String>(PARTNER_NAME));
 		StepsPartnerBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 14));
 		StepsPartnerBox.setBounds(687, 214, 314, 21);
 		Steps.add(StepsPartnerBox);
