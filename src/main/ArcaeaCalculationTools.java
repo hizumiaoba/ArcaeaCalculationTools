@@ -32,7 +32,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	 * Serial Wrote at 20200/06/17
 	 */
 	private static final long serialVersionUID = 1796950740947109175L;
-	private static final String VERSION = "Ver. 0.2.0-Alpha";
+	private static final String VERSION = "Ver.0.1.3-Alpha";
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
 			"Arcaea",
@@ -173,6 +173,15 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel PotentialChartPotentialResultShowLabel = new JLabel();
 	private final JLabel PotentialGradeResultsShowLabel = new JLabel();
 	private final JLabel StepsPackLabel = new JLabel(Messages.MSGSongPack.toString());
+	private final JLabel StepsTitleLabel = new JLabel(Messages.MSGSongTitle.toString());
+	private final JLabel StepsScoreLabel = new JLabel(Messages.MSGShowScore.toString());
+	private final JLabel StepsLvLabel = new JLabel(Messages.MSGLv.toString());
+	private final JLabel StepsPartnerLabel = new JLabel(Messages.MSGPartnerName.toString());
+	private final JComboBox<String> StepsPackBox = new JComboBox<String>(PACK_NAME);
+	private final JComboBox<String> StepsSongBox = new JComboBox<String>();
+	private final JComboBox<String> StepsPartnerBox = new JComboBox<String>();
+	private final JComboBox<Integer> StepsLvBox = new JComboBox<Integer>();
+	private JCheckBox chkbxIsAwakened = new JCheckBox(Messages.MSGAwakened.toString());
 	private JTextField textField;
 	private JTextField textField_1;
 	private JLabel lblTempest;
@@ -477,43 +486,34 @@ public class ArcaeaCalculationTools extends JFrame {
 
 		Steps.add(StepsPackLabel);
 
-		JLabel StepsTitleLable = new JLabel(Messages.MSGSongTitle.toString());
-		StepsTitleLable.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		StepsTitleLable.setBounds(359, 180, 60, 24);
-		Steps.add(StepsTitleLable);
+		StepsTitleLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		StepsTitleLabel.setBounds(359, 180, 60, 24);
+		Steps.add(StepsTitleLabel);
 
-		JLabel StepsScoreLabel = new JLabel(Messages.MSGShowScore.toString());
 		StepsScoreLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		StepsScoreLabel.setBounds(543, 180, 60, 24);
 		Steps.add(StepsScoreLabel);
 
-		JLabel StepsLvLabel = new JLabel(Messages.MSGLv.toString());
 		StepsLvLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		StepsLvLabel.setBounds(1058, 180, 60, 24);
 		Steps.add(StepsLvLabel);
 
-		JLabel StepsPartnerLabel = new JLabel(Messages.MSGPartnerName.toString());
 		StepsPartnerLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		StepsPartnerLabel.setBounds(797, 180, 120, 24);
 		Steps.add(StepsPartnerLabel);
 
-		JComboBox StepsPackBox = new JComboBox();
 		StepsPackBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
 		StepsPackBox.setBounds(38, 214, 214, 21);
-		StepsPackBox.setModel(new DefaultComboBoxModel<String>(PACK_NAME));
 		Steps.add(StepsPackBox);
 
-		JComboBox StepsSongBox = new JComboBox();
 		StepsSongBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
 		StepsSongBox.setBounds(284, 214, 194, 21);
 		Steps.add(StepsSongBox);
 
-		JComboBox StepsPartnerBox = new JComboBox(PARTNER_NAME);
 		StepsPartnerBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 14));
 		StepsPartnerBox.setBounds(687, 214, 314, 21);
 		Steps.add(StepsPartnerBox);
 
-		JComboBox StepsLvBox = new JComboBox();
 		StepsLvBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
 		StepsLvBox.setBounds(1038, 214, 106, 21);
 		Steps.add(StepsLvBox);
@@ -538,7 +538,6 @@ public class ArcaeaCalculationTools extends JFrame {
 		Steps.add(textField);
 		textField.setColumns(10);
 
-		JCheckBox chkbxIsAwakened = new JCheckBox(Messages.MSGAwakened.toString());
 		chkbxIsAwakened.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
 		chkbxIsAwakened.setBounds(1038, 261, 103, 21);
 		Steps.add(chkbxIsAwakened);
