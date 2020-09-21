@@ -19,8 +19,7 @@ import javax.swing.border.EmptyBorder;
 
 import calcLib.ChartPotential;
 
-/*
- * /**
+/**
  * Arcaeaをプレイする上で重要になってくる色々なパラメータを計算するものです。
  * このファイルは中央処理、ウィンドウ処理用です。
  *
@@ -32,7 +31,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	 * Serial Wrote at 20200/06/17
 	 */
 	private static final long serialVersionUID = 1796950740947109175L;
-	private static final String VERSION = "Ver.0.1.3-Alpha";
+	private static final String VERSION = "Ver.0.2.0-Alpha";
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
 			"Arcaea",
@@ -182,9 +181,17 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JComboBox<String> StepsPartnerBox = new JComboBox<String>();
 	private final JComboBox<Integer> StepsLvBox = new JComboBox<Integer>();
 	private JCheckBox chkbxIsAwakened = new JCheckBox(Messages.MSGAwakened.toString());
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField StepsScoreField;
+	private JTextField StepsTempestStepField;
 	private JLabel lblTempest;
+	private final JLabel StepsSongInfLabel = new JLabel(Messages.MSGSongInformation.toString());
+	private final JLabel StepsResultLabel = new JLabel(Messages.MSGResult.toString());
+	private final JLabel StepsSongTitleEngLabel = new JLabel("");
+	private final JLabel StepsSongTitleJpnLabel = new JLabel("");
+	private final JLabel StepsChartConstLabel = new JLabel("");
+	private final JLabel label = new JLabel("");
+	private final JLabel label_1 = new JLabel("");
+	private final JLabel label_2 = new JLabel("");
 
 	/**
 	 * Launch the application.
@@ -519,6 +526,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		StepsPartnerBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 14));
 		StepsPartnerBox.setBounds(687, 214, 314, 21);
 		Steps.add(StepsPartnerBox);
+		StepsLvBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
 
 		StepsLvBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
 		StepsLvBox.setBounds(1038, 214, 106, 21);
@@ -539,24 +547,56 @@ public class ArcaeaCalculationTools extends JFrame {
 			}
 		});
 
-		textField = new JTextField();
-		textField.setBounds(510, 215, 127, 19);
-		Steps.add(textField);
-		textField.setColumns(10);
+		StepsScoreField = new JTextField();
+		StepsScoreField.setBounds(510, 215, 127, 19);
+		Steps.add(StepsScoreField);
+		StepsScoreField.setColumns(10);
 
 		chkbxIsAwakened.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
 		chkbxIsAwakened.setBounds(1038, 261, 103, 21);
 		Steps.add(chkbxIsAwakened);
 
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(1176, 304, 49, 19);
-		Steps.add(textField_1);
+		StepsTempestStepField = new JTextField();
+		StepsTempestStepField.setColumns(10);
+		StepsTempestStepField.setBounds(1176, 304, 49, 19);
+		Steps.add(StepsTempestStepField);
 
 		lblTempest = new JLabel(Messages.MSGForTempest.toString());
 		lblTempest.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		lblTempest.setBounds(1002, 300, 148, 24);
 		Steps.add(lblTempest);
+		StepsSongInfLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		StepsSongInfLabel.setBounds(168, 258, 100, 24);
+
+		Steps.add(StepsSongInfLabel);
+		StepsResultLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		StepsResultLabel.setBounds(631, 258, 100, 24);
+
+		Steps.add(StepsResultLabel);
+		StepsSongTitleEngLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		StepsSongTitleEngLabel.setBounds(24, 314, 395, 24);
+
+		Steps.add(StepsSongTitleEngLabel);
+		StepsSongTitleJpnLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		StepsSongTitleJpnLabel.setBounds(24, 353, 395, 24);
+
+		Steps.add(StepsSongTitleJpnLabel);
+		StepsChartConstLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		StepsChartConstLabel.setBounds(24, 394, 395, 24);
+
+		Steps.add(StepsChartConstLabel);
+		label.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		label.setBounds(495, 304, 395, 24);
+
+		Steps.add(label);
+		label_1.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		label_1.setBounds(495, 343, 395, 24);
+
+		Steps.add(label_1);
+		label_2.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		label_2.setBounds(495, 384, 395, 24);
+
+		Steps.add(label_2);
 		Exp.setName("Exp");
 
 		contentPane.add(Exp, Exp.getName());
