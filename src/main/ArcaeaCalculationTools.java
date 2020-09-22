@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import calcLib.ChartPotential;
+import calcLib.Step;
 
 /**
  * Arcaeaをプレイする上で重要になってくる色々なパラメータを計算するものです。
@@ -180,7 +180,6 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JComboBox<String> StepsSongBox = new JComboBox<String>();
 	private final JComboBox<String> StepsPartnerBox = new JComboBox<String>();
 	private final JComboBox<Integer> StepsLvBox = new JComboBox<Integer>();
-	private JCheckBox chkbxIsAwakened = new JCheckBox(Messages.MSGAwakened.toString());
 	private JTextField StepsScoreField;
 	private JTextField StepsTempestStepField;
 	private JLabel lblTempest;
@@ -246,7 +245,7 @@ public class ArcaeaCalculationTools extends JFrame {
 				cardLayout.show(contentPane, e.getActionCommand());
 			}
 		});
-		btnPotentialSwitchToSteps.setActionCommand("Steps");
+		btnPotentialSwitchToSteps.setActionCommand("Step");
 		btnPotentialSwitchToSteps.setText(Messages.MSGSwitchToStep.toString());
 		btnPotentialSwitchToSteps.setBounds(0, 25, 175, 21);
 		PotentialSwitchBtn.add(btnPotentialSwitchToSteps);
@@ -408,7 +407,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		PotentialGradeResultsShowLabel.setBounds(510, 357, 307, 24);
 
 		Potential.add(PotentialGradeResultsShowLabel);
-		Steps.setName("Steps");
+		Steps.setName("Step");
 
 		contentPane.add(Steps, Steps.getName());
 		Steps.setLayout(null);
@@ -431,7 +430,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			}
 		});
 		btnStepsSwitchToSteps.setText(Messages.MSGSwitchToStep.toString());
-		btnStepsSwitchToSteps.setActionCommand("Steps");
+		btnStepsSwitchToSteps.setActionCommand("Step");
 		btnStepsSwitchToSteps.setBounds(0, 25, 175, 21);
 
 		StepsSwitchBtn.add(btnStepsSwitchToSteps);
@@ -477,13 +476,19 @@ public class ArcaeaCalculationTools extends JFrame {
 				String titleEng = StepsSongBox.getSelectedItem().toString();
 				String difficulty = StepsDifficultyBox.getSelectedItem().toString();
 				String titleJpn = ChartPotential.getTitle(pack, titleEng).toString();
+				String partner = StepsPartnerBox.getSelectedItem().toString();
+				int lv = Integer.parseInt(StepsLvBox.getSelectedItem().toString());
 				double chartconst = ChartPotential.getChartConstant(pack, titleEng, difficulty);
-				double step = ChartPotential.calcChartPotential(pack, titleEng, difficulty, score);
+				double step = 0.0;
+				if(partner.equals("Tempest Tairitsu")) {
+					step = Step.calcSteps(pack, titleEng, difficulty, score, Integer.parseInt(StepsTempestStepField.getText()));
+				} else {
+					step = Step.calcSteps(pack, titleEng, difficulty, score, partner, lv);
+				}
 				StepsSongTitleEngLabel
 						.setText(Messages.MSGEnglishTitle.toString() + " : " + titleEng);
 				StepsSongTitleJpnLabel.setText(Messages.MSGJapaneseTitle.toString() + " : " + titleJpn);
 				StepsChartConstLabel.setText(Messages.MSGChartConstant.toString() + " : " + chartconst);
-
 				StepsScoreResultShowLabel.setText(Messages.MSGShowScore.toString() + " : " + score);
 				StepsStepResultShowLabel
 						.setText(String.valueOf(Messages.MSGShowSteps.toString() + " : " + step));
@@ -495,6 +500,8 @@ public class ArcaeaCalculationTools extends JFrame {
 						+ "\ndifficulty : " + difficulty
 						+ "\ntitleJpn : " + titleJpn
 						+ "\nchartconst : " + chartconst
+						+ "\nPartner : "  + partner
+						+ "\nPartner Level : " + lv
 						+ "\nStep : " + step);
 			}
 		});
@@ -579,10 +586,6 @@ public class ArcaeaCalculationTools extends JFrame {
 		Steps.add(StepsScoreField);
 		StepsScoreField.setColumns(10);
 
-		chkbxIsAwakened.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
-		chkbxIsAwakened.setBounds(1038, 261, 103, 21);
-		Steps.add(chkbxIsAwakened);
-
 		StepsTempestStepField = new JTextField();
 		StepsTempestStepField.setColumns(10);
 		StepsTempestStepField.setBounds(1176, 304, 49, 19);
@@ -658,7 +661,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			}
 		});
 		btnExpSwitchToSteps.setText(Messages.MSGSwitchToStep.toString());
-		btnExpSwitchToSteps.setActionCommand("Steps");
+		btnExpSwitchToSteps.setActionCommand("Step");
 		btnExpSwitchToSteps.setBounds(0, 25, 175, 21);
 
 		ExpSwitchBtn.add(btnExpSwitchToSteps);
@@ -740,7 +743,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			}
 		});
 		btnPerformanceSwitchToSteps.setText(Messages.MSGSwitchToStep.toString());
-		btnPerformanceSwitchToSteps.setActionCommand("Steps");
+		btnPerformanceSwitchToSteps.setActionCommand("Step");
 		btnPerformanceSwitchToSteps.setBounds(0, 25, 175, 21);
 
 		PerformanceSwitchBtn.add(btnPerformanceSwitchToSteps);
@@ -822,7 +825,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			}
 		});
 		btnChartConstSwitchToSteps.setText(Messages.MSGSwitchToStep.toString());
-		btnChartConstSwitchToSteps.setActionCommand("Steps");
+		btnChartConstSwitchToSteps.setActionCommand("Step");
 		btnChartConstSwitchToSteps.setBounds(0, 25, 175, 21);
 
 		ChartconstantSwitchBtn.add(btnChartConstSwitchToSteps);

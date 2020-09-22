@@ -9,7 +9,7 @@ import java.net.URL;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class Steps {
+public class Step {
 
 	private static final String FILEPATH = "http://hizumiaoba.html.xdomain.jp/json/Partner.json";
 
@@ -37,7 +37,7 @@ public class Steps {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			JsonNode node = mapper.readTree(new URL(FILEPATH));
-			stats = node.get(partner).get("Step").get(lv).asInt();
+			stats = node.get("Step").get(lv).asInt();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
