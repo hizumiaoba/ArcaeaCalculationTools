@@ -37,7 +37,7 @@ public class Step {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			JsonNode node = mapper.readTree(new URL(FILEPATH));
-			stats = node.get("Step").get(lv).asInt();
+			stats = node.get(partner).get(lv - 1).asInt();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

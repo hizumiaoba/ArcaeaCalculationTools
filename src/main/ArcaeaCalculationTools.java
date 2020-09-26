@@ -79,7 +79,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Summer Hikari",
 			"Summer Tairitsu",
 			"Ayu",
-			"Winter Eto&Runa",
+			"Winter Eto&Luna",
 			"Yume",
 			"Chuni Penguin",
 			"Haruna",
