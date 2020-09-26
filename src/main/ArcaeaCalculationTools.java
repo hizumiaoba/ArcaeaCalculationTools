@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,9 +17,9 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import calcLib.ChartPotential;
+import calcLib.Step;
 
-/*
- * /**
+/**
  * Arcaeaをプレイする上で重要になってくる色々なパラメータを計算するものです。
  * このファイルは中央処理、ウィンドウ処理用です。
  *
@@ -32,7 +31,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	 * Serial Wrote at 20200/06/17
 	 */
 	private static final long serialVersionUID = 1796950740947109175L;
-	private static final String VERSION = "Ver.0.1.3-Alpha";
+	private static final String VERSION = "Ver.0.2.0-Alpha";
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
 			"Arcaea",
@@ -80,7 +79,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Summer Hikari",
 			"Summer Tairitsu",
 			"Ayu",
-			"Winter Eto&Runa",
+			"Winter Eto&Luna",
 			"Yume",
 			"Chuni Penguin",
 			"Haruna",
@@ -177,14 +176,23 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel StepsScoreLabel = new JLabel(Messages.MSGShowScore.toString());
 	private final JLabel StepsLvLabel = new JLabel(Messages.MSGLv.toString());
 	private final JLabel StepsPartnerLabel = new JLabel(Messages.MSGPartnerName.toString());
-	private final JComboBox<String> StepsPackBox = new JComboBox<String>(PACK_NAME);
+	private final JComboBox<String> StepsPackBox = new JComboBox<String>();
 	private final JComboBox<String> StepsSongBox = new JComboBox<String>();
 	private final JComboBox<String> StepsPartnerBox = new JComboBox<String>();
 	private final JComboBox<Integer> StepsLvBox = new JComboBox<Integer>();
-	private JCheckBox chkbxIsAwakened = new JCheckBox(Messages.MSGAwakened.toString());
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField StepsScoreField;
+	private JTextField StepsTempestStepField;
 	private JLabel lblTempest;
+	private final JLabel StepsSongInfLabel = new JLabel(Messages.MSGSongInformation.toString());
+	private final JLabel StepsResultLabel = new JLabel(Messages.MSGResult.toString());
+	private final JLabel StepsSongTitleEngLabel = new JLabel("");
+	private final JLabel StepsSongTitleJpnLabel = new JLabel("");
+	private final JLabel StepsChartConstLabel = new JLabel("");
+	private final JLabel StepsScoreResultShowLabel = new JLabel("");
+	private final JLabel StepsStepResultShowLabel = new JLabel("");
+	private final JLabel StepsGradeResultShowLabel = new JLabel("");
+	private JComboBox<String> StepsDifficultyBox;
+	private JLabel StepsDifficultyLabel;
 
 	/**
 	 * Launch the application.
@@ -237,7 +245,7 @@ public class ArcaeaCalculationTools extends JFrame {
 				cardLayout.show(contentPane, e.getActionCommand());
 			}
 		});
-		btnPotentialSwitchToSteps.setActionCommand("Steps");
+		btnPotentialSwitchToSteps.setActionCommand("Step");
 		btnPotentialSwitchToSteps.setText(Messages.MSGSwitchToStep.toString());
 		btnPotentialSwitchToSteps.setBounds(0, 25, 175, 21);
 		PotentialSwitchBtn.add(btnPotentialSwitchToSteps);
@@ -399,7 +407,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		PotentialGradeResultsShowLabel.setBounds(510, 357, 307, 24);
 
 		Potential.add(PotentialGradeResultsShowLabel);
-		Steps.setName("Steps");
+		Steps.setName("Step");
 
 		contentPane.add(Steps, Steps.getName());
 		Steps.setLayout(null);
@@ -422,7 +430,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			}
 		});
 		btnStepsSwitchToSteps.setText(Messages.MSGSwitchToStep.toString());
-		btnStepsSwitchToSteps.setActionCommand("Steps");
+		btnStepsSwitchToSteps.setActionCommand("Step");
 		btnStepsSwitchToSteps.setBounds(0, 25, 175, 21);
 
 		StepsSwitchBtn.add(btnStepsSwitchToSteps);
@@ -462,6 +470,39 @@ public class ArcaeaCalculationTools extends JFrame {
 		Steps.add(StepsSystemBtn);
 		btnStepsCalculation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Calculation trigger fired.");
+				int score = Integer.parseInt(StepsScoreField.getText());
+				String pack = StepsPackBox.getSelectedItem().toString();
+				String titleEng = StepsSongBox.getSelectedItem().toString();
+				String difficulty = StepsDifficultyBox.getSelectedItem().toString();
+				String titleJpn = ChartPotential.getTitle(pack, titleEng).toString();
+				String partner = StepsPartnerBox.getSelectedItem().toString();
+				int lv = Integer.parseInt(StepsLvBox.getSelectedItem().toString());
+				double chartconst = ChartPotential.getChartConstant(pack, titleEng, difficulty);
+				double step = 0.0;
+				if(partner.equals("Tempest Tairitsu")) {
+					step = Step.calcSteps(pack, titleEng, difficulty, score, Integer.parseInt(StepsTempestStepField.getText()));
+				} else {
+					step = Step.calcSteps(pack, titleEng, difficulty, score, partner, lv);
+				}
+				StepsSongTitleEngLabel
+						.setText(Messages.MSGEnglishTitle.toString() + " : " + titleEng);
+				StepsSongTitleJpnLabel.setText(Messages.MSGJapaneseTitle.toString() + " : " + titleJpn);
+				StepsChartConstLabel.setText(Messages.MSGChartConstant.toString() + " : " + chartconst);
+				StepsScoreResultShowLabel.setText(Messages.MSGShowScore.toString() + " : " + score);
+				StepsStepResultShowLabel
+						.setText(String.valueOf(Messages.MSGShowSteps.toString() + " : " + step));
+				StepsGradeResultShowLabel.setText(Messages.MSGShowGrade + " : " + ChartPotential.getGrade(score));
+				System.out.println("calculation complete.\n"
+						+ "score : " + score
+						+ "\npack : " + pack
+						+ "\ntitleEng : " + titleEng
+						+ "\ndifficulty : " + difficulty
+						+ "\ntitleJpn : " + titleJpn
+						+ "\nchartconst : " + chartconst
+						+ "\nPartner : "  + partner
+						+ "\nPartner Level : " + lv
+						+ "\nStep : " + step);
 			}
 		});
 		btnStepsCalculation.setActionCommand("StepsCalc");
@@ -495,17 +536,18 @@ public class ArcaeaCalculationTools extends JFrame {
 		Steps.add(StepsTitleLabel);
 
 		StepsScoreLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		StepsScoreLabel.setBounds(543, 180, 60, 24);
+		StepsScoreLabel.setBounds(641, 180, 60, 24);
 		Steps.add(StepsScoreLabel);
 
 		StepsLvLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		StepsLvLabel.setBounds(1058, 180, 60, 24);
+		StepsLvLabel.setBounds(1156, 180, 60, 24);
 		Steps.add(StepsLvLabel);
 
 		StepsPartnerLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		StepsPartnerLabel.setBounds(797, 180, 120, 24);
+		StepsPartnerLabel.setBounds(895, 180, 120, 24);
 		Steps.add(StepsPartnerLabel);
 
+		StepsPackBox.setModel(new DefaultComboBoxModel<String>(PACK_NAME));
 		StepsPackBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
 		StepsPackBox.setBounds(38, 214, 214, 21);
 		Steps.add(StepsPackBox);
@@ -514,12 +556,14 @@ public class ArcaeaCalculationTools extends JFrame {
 		StepsSongBox.setBounds(284, 214, 194, 21);
 		Steps.add(StepsSongBox);
 
+		StepsPartnerBox.setModel(new DefaultComboBoxModel<String>(PARTNER_NAME));
 		StepsPartnerBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 14));
-		StepsPartnerBox.setBounds(687, 214, 314, 21);
+		StepsPartnerBox.setBounds(785, 214, 314, 21);
 		Steps.add(StepsPartnerBox);
+		StepsLvBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
 
 		StepsLvBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
-		StepsLvBox.setBounds(1038, 214, 106, 21);
+		StepsLvBox.setBounds(1136, 214, 106, 21);
 		Steps.add(StepsLvBox);
 
 		StepsPackBox.addActionListener(new ActionListener() {
@@ -537,24 +581,63 @@ public class ArcaeaCalculationTools extends JFrame {
 			}
 		});
 
-		textField = new JTextField();
-		textField.setBounds(510, 215, 127, 19);
-		Steps.add(textField);
-		textField.setColumns(10);
+		StepsScoreField = new JTextField();
+		StepsScoreField.setBounds(608, 215, 127, 19);
+		Steps.add(StepsScoreField);
+		StepsScoreField.setColumns(10);
 
-		chkbxIsAwakened.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
-		chkbxIsAwakened.setBounds(1038, 261, 103, 21);
-		Steps.add(chkbxIsAwakened);
-
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(1176, 304, 49, 19);
-		Steps.add(textField_1);
+		StepsTempestStepField = new JTextField();
+		StepsTempestStepField.setColumns(10);
+		StepsTempestStepField.setBounds(1176, 304, 49, 19);
+		Steps.add(StepsTempestStepField);
 
 		lblTempest = new JLabel(Messages.MSGForTempest.toString());
 		lblTempest.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		lblTempest.setBounds(1002, 300, 148, 24);
 		Steps.add(lblTempest);
+		StepsSongInfLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		StepsSongInfLabel.setBounds(168, 258, 100, 24);
+
+		Steps.add(StepsSongInfLabel);
+		StepsResultLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		StepsResultLabel.setBounds(631, 258, 100, 24);
+
+		Steps.add(StepsResultLabel);
+		StepsSongTitleEngLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		StepsSongTitleEngLabel.setBounds(24, 314, 395, 24);
+
+		Steps.add(StepsSongTitleEngLabel);
+		StepsSongTitleJpnLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		StepsSongTitleJpnLabel.setBounds(24, 353, 395, 24);
+
+		Steps.add(StepsSongTitleJpnLabel);
+		StepsChartConstLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		StepsChartConstLabel.setBounds(24, 394, 395, 24);
+
+		Steps.add(StepsChartConstLabel);
+		StepsScoreResultShowLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		StepsScoreResultShowLabel.setBounds(495, 304, 395, 24);
+
+		Steps.add(StepsScoreResultShowLabel);
+		StepsStepResultShowLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		StepsStepResultShowLabel.setBounds(495, 343, 395, 24);
+
+		Steps.add(StepsStepResultShowLabel);
+		StepsGradeResultShowLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		StepsGradeResultShowLabel.setBounds(495, 384, 395, 24);
+
+		Steps.add(StepsGradeResultShowLabel);
+
+		StepsDifficultyBox = new JComboBox<String>();
+		StepsDifficultyBox.setModel(new DefaultComboBoxModel(new String[] {"PST", "PRS", "FTR", "BYD"}));
+		StepsDifficultyBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		StepsDifficultyBox.setBounds(490, 214, 104, 21);
+		Steps.add(StepsDifficultyBox);
+
+		StepsDifficultyLabel = new JLabel(Messages.MSGChartDifficulty.toString());
+		StepsDifficultyLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		StepsDifficultyLabel.setBounds(478, 180, 120, 24);
+		Steps.add(StepsDifficultyLabel);
 		Exp.setName("Exp");
 
 		contentPane.add(Exp, Exp.getName());
@@ -578,7 +661,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			}
 		});
 		btnExpSwitchToSteps.setText(Messages.MSGSwitchToStep.toString());
-		btnExpSwitchToSteps.setActionCommand("Steps");
+		btnExpSwitchToSteps.setActionCommand("Step");
 		btnExpSwitchToSteps.setBounds(0, 25, 175, 21);
 
 		ExpSwitchBtn.add(btnExpSwitchToSteps);
@@ -660,7 +743,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			}
 		});
 		btnPerformanceSwitchToSteps.setText(Messages.MSGSwitchToStep.toString());
-		btnPerformanceSwitchToSteps.setActionCommand("Steps");
+		btnPerformanceSwitchToSteps.setActionCommand("Step");
 		btnPerformanceSwitchToSteps.setBounds(0, 25, 175, 21);
 
 		PerformanceSwitchBtn.add(btnPerformanceSwitchToSteps);
@@ -742,7 +825,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			}
 		});
 		btnChartConstSwitchToSteps.setText(Messages.MSGSwitchToStep.toString());
-		btnChartConstSwitchToSteps.setActionCommand("Steps");
+		btnChartConstSwitchToSteps.setActionCommand("Step");
 		btnChartConstSwitchToSteps.setBounds(0, 25, 175, 21);
 
 		ChartconstantSwitchBtn.add(btnChartConstSwitchToSteps);

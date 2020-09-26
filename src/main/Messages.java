@@ -40,7 +40,8 @@ import java.util.ResourceBundle;
 		MSGLv,
 		MSGAwakened,
 		MSGPartnerName,
-		MSGForTempest;
+		MSGForTempest,
+		MSGShowSteps;
 
 	@Override public String toString() {
 		try {

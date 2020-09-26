@@ -9,7 +9,7 @@ import java.net.URL;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class Steps {
+public class Step {
 
 	private static final String FILEPATH = "http://hizumiaoba.html.xdomain.jp/json/Partner.json";
 
@@ -22,10 +22,10 @@ public class Steps {
 	 * @param partner
 	 * @return
 	 */
-	private static double calcSteps(String pack, String title, String difficulty, int score, int partner) {
-		double res = 0.00;
-			res = 2.5 + (2.45 * Math.sqrt(ChartPotential.calcChartPotential(pack, title, difficulty, score)));
-			return res * (partner * 0.02);
+	public static double calcSteps(String pack, String title, String difficulty, int score, int partner) {
+		BigDecimal tempBigDecimal = calcStepsWithBD(pack, title, difficulty, score, partner);
+		double result = Double.parseDouble(String.format("%.2f", tempBigDecimal));
+		return result;
 	}
 
 	public static double calcSteps(String pack, String title, String difficulty, int score) {
@@ -36,8 +36,9 @@ public class Steps {
 		int stats = 0;
 		ObjectMapper mapper = new ObjectMapper();
 		try {
+			int index = lv - 1;
 			JsonNode node = mapper.readTree(new URL(FILEPATH));
-			stats = node.get(partner).get("Step").get(lv).asInt();
+			stats = node.get(partner).get("Step").get(index).asInt();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -45,10 +46,10 @@ public class Steps {
 	}
 
 	private static BigDecimal calcStepsWithBD(String pack, String title, String difficulty, int score, int partner) {
-		BigDecimal res = new BigDecimal("2.5", new MathContext(20, RoundingMode.DOWN));;
+		BigDecimal res = new BigDecimal("2.5", new MathContext(20, RoundingMode.DOWN));
 		BigDecimal temp = new BigDecimal(String.valueOf(Math.sqrt(ChartPotential.calcChartPotential(pack, title, difficulty, score))));
-		temp.multiply(new BigDecimal("2.45"));
-		res.add(temp);
+		temp = temp.multiply(new BigDecimal("2.45"));
+		res = res.add(temp);
 		return res.compareTo(BigDecimal.ZERO) == -1 ? null : res;
 	}
 
