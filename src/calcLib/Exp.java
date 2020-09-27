@@ -36,8 +36,8 @@ public class Exp {
 			750
 	};
 
-	public static int calcExp(String pack, String title, String difficulty, int score) {
-		return (int)ChartPotential.calcChartPotential(pack, title, difficulty, score) * 3;
+	public static int calcExp(String pack, String title, String difficulty, int score, boolean isBoosted) {
+		return isBoosted ? (int)(ChartPotential.calcChartPotential(pack, title, difficulty, score) * 12) : (int)(ChartPotential.calcChartPotential(pack, title, difficulty, score) * 3);
 	}
 
 	public static int requireExpToMax(int lv, int percentage, boolean isAwakenable) {
