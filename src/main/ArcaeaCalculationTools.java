@@ -31,7 +31,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	 * Serial Wrote at 20200/06/17
 	 */
 	private static final long serialVersionUID = 1796950740947109175L;
-	private static final String VERSION = "Ver.0.2.1-Alpha";
+	private static final String VERSION = "Ver.0.3.0-Alpha";
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
 			"Arcaea",
@@ -720,6 +720,11 @@ public class ArcaeaCalculationTools extends JFrame {
 		ExpLabel.setBounds(510, 49, 100, 24);
 
 		Exp.add(ExpLabel);
+
+		JLabel ExpPackLabel = new JLabel("収録パック");
+		ExpPackLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		ExpPackLabel.setBounds(120, 238, 100, 24);
+		Exp.add(ExpPackLabel);
 		Performance.setName("Performance");
 
 		contentPane.add(Performance, Performance.getName());
