@@ -48,8 +48,12 @@ public class Step {
 	private static BigDecimal calcStepsWithBD(String pack, String title, String difficulty, int score, int partner) {
 		BigDecimal res = new BigDecimal("2.5", new MathContext(20, RoundingMode.DOWN));
 		BigDecimal temp = new BigDecimal(String.valueOf(Math.sqrt(ChartPotential.calcChartPotential(pack, title, difficulty, score))));
+		BigDecimal corrector = new BigDecimal(String.valueOf("0.02"));
+		BigDecimal partnerBigDecimal = new BigDecimal(String.valueOf(partner));
 		temp = temp.multiply(new BigDecimal("2.45"));
 		res = res.add(temp);
+		partnerBigDecimal = partnerBigDecimal.multiply(corrector);
+		res = res.multiply(partnerBigDecimal);
 		return res.compareTo(BigDecimal.ZERO) == -1 ? null : res;
 	}
 
