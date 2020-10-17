@@ -31,7 +31,11 @@ public class ArcaeaCalculationTools extends JFrame {
 	 * Serial Wrote at 20200/06/17
 	 */
 	private static final long serialVersionUID = 1796950740947109175L;
+<<<<<<< HEAD
 	private static final String VERSION = "Ver.0.3.0-Alpha";
+=======
+	private static final String VERSION = "Ver.0.2.2-Alpha";
+>>>>>>> refs/heads/master
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
 			"Arcaea",
@@ -92,6 +96,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Summer Ilith"
 	};
 
+	private DefaultComboBoxModel<String> initBoxModel = new DefaultComboBoxModel<String>();
 	private JPanel contentPane;
 	private final JPanel PotentialSwitchBtn = new JPanel();
 	private final JButton btnPotentialSwitchToSteps = new JButton();
@@ -196,6 +201,7 @@ public class ArcaeaCalculationTools extends JFrame {
 
 	/**
 	 * Launch the application.
+	 * @since Ver0.1.0-Alpha
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -212,8 +218,11 @@ public class ArcaeaCalculationTools extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @since Ver0.1.0-Alpha
 	 */
 	public ArcaeaCalculationTools() {
+		// initiate the combo box model
+		modelInit();
 		PotentialScoreField.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 12));
 		PotentialScoreField.setBounds(1067, 193, 150, 19);
 		PotentialScoreField.setColumns(10);
@@ -888,5 +897,20 @@ public class ArcaeaCalculationTools extends JFrame {
 		ChartConstantLabel.setMaximumSize(new Dimension(60, 20));
 		ChartConstantLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 
+	}
+
+	/**
+	 * 楽曲パックの初期値を表示
+	 *
+	 * @since Ver0.2.2-Alpha
+	 * @author hizumi
+	 */
+	private void modelInit() {
+		String[] initStrings = ChartPotential.getSongKey("MemoryArchive");
+		for(String initString : initStrings) {
+			initBoxModel.addElement(initString);
+		}
+		PotentialSongBox.setModel(initBoxModel);
+		StepsSongBox.setModel(initBoxModel);
 	}
 }
