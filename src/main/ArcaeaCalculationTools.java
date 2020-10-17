@@ -728,8 +728,28 @@ public class ArcaeaCalculationTools extends JFrame {
 
 		JLabel ExpPackLabel = new JLabel("収録パック");
 		ExpPackLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		ExpPackLabel.setBounds(120, 238, 100, 24);
+		ExpPackLabel.setBounds(118, 187, 100, 24);
 		Exp.add(ExpPackLabel);
+
+		JLabel ExpSongLabel = new JLabel("Song title");
+		ExpSongLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		ExpSongLabel.setBounds(381, 187, 100, 24);
+		Exp.add(ExpSongLabel);
+
+		JLabel ExpDifficultyLabel = new JLabel("diff");
+		ExpDifficultyLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		ExpDifficultyLabel.setBounds(679, 187, 100, 24);
+		Exp.add(ExpDifficultyLabel);
+
+		JLabel ExpScoreLabel = new JLabel("score");
+		ExpScoreLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		ExpScoreLabel.setBounds(894, 187, 100, 24);
+		Exp.add(ExpScoreLabel);
+
+		JLabel ExpIsboostedLabel = new JLabel("Isboosted");
+		ExpIsboostedLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		ExpIsboostedLabel.setBounds(1100, 187, 100, 24);
+		Exp.add(ExpIsboostedLabel);
 		Performance.setName("Performance");
 
 		contentPane.add(Performance, Performance.getName());
