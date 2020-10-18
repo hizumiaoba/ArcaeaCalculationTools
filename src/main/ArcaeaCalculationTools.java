@@ -194,6 +194,11 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel StepsGradeResultShowLabel = new JLabel("");
 	private JComboBox<String> StepsDifficultyBox;
 	private JLabel StepsDifficultyLabel;
+	private JLabel ExpPackLabel = new JLabel(Messages.MSGSongPack.toString());
+	private JLabel ExpSongLabel = new JLabel(Messages.MSGSongTitle.toString());
+	private JLabel ExpDifficultyLabel = new JLabel(Messages.MSGChartDifficulty.toString());
+	private JLabel ExpScoreLabel = new JLabel(Messages.MSGShowScore.toString());
+	private JLabel ExpIsboostedLabel = new JLabel("Isboosted");
 
 	/**
 	 * Launch the application.
@@ -726,27 +731,22 @@ public class ArcaeaCalculationTools extends JFrame {
 
 		Exp.add(ExpLabel);
 
-		JLabel ExpPackLabel = new JLabel("収録パック");
 		ExpPackLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		ExpPackLabel.setBounds(118, 187, 100, 24);
 		Exp.add(ExpPackLabel);
 
-		JLabel ExpSongLabel = new JLabel("Song title");
 		ExpSongLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		ExpSongLabel.setBounds(381, 187, 100, 24);
 		Exp.add(ExpSongLabel);
 
-		JLabel ExpDifficultyLabel = new JLabel("diff");
 		ExpDifficultyLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		ExpDifficultyLabel.setBounds(679, 187, 100, 24);
+		ExpDifficultyLabel.setBounds(679, 187, 120, 24);
 		Exp.add(ExpDifficultyLabel);
 
-		JLabel ExpScoreLabel = new JLabel("score");
 		ExpScoreLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		ExpScoreLabel.setBounds(894, 187, 100, 24);
 		Exp.add(ExpScoreLabel);
 
-		JLabel ExpIsboostedLabel = new JLabel("Isboosted");
 		ExpIsboostedLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		ExpIsboostedLabel.setBounds(1100, 187, 100, 24);
 		Exp.add(ExpIsboostedLabel);
