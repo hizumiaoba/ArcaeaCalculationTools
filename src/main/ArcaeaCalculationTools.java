@@ -198,7 +198,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	private JLabel ExpSongLabel = new JLabel(Messages.MSGSongTitle.toString());
 	private JLabel ExpDifficultyLabel = new JLabel(Messages.MSGChartDifficulty.toString());
 	private JLabel ExpScoreLabel = new JLabel(Messages.MSGShowScore.toString());
-	private JLabel ExpIsboostedLabel = new JLabel("Isboosted");
+	private JLabel ExpIsboostedLabel = new JLabel(Messages.MSGIsBoosted.toString());
 
 	/**
 	 * Launch the application.
@@ -748,7 +748,7 @@ public class ArcaeaCalculationTools extends JFrame {
 		Exp.add(ExpScoreLabel);
 
 		ExpIsboostedLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		ExpIsboostedLabel.setBounds(1100, 187, 100, 24);
+		ExpIsboostedLabel.setBounds(1057, 187, 160, 24);
 		Exp.add(ExpIsboostedLabel);
 		Performance.setName("Performance");
 

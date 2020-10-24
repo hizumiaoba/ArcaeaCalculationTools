@@ -41,7 +41,8 @@ import java.util.ResourceBundle;
 		MSGAwakened,
 		MSGPartnerName,
 		MSGForTempest,
-		MSGShowSteps;
+		MSGShowSteps,
+		MSGIsBoosted;
 
 	@Override public String toString() {
 		try {
