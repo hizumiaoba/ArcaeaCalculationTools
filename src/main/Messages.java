@@ -42,7 +42,12 @@ import java.util.ResourceBundle;
 		MSGPartnerName,
 		MSGForTempest,
 		MSGShowSteps,
-		MSGIsBoosted;
+		MSGIsBoosted,
+		MSGActive,
+		MSGGotExp;
+		/*
+		 * TODO: 「有効(Active)」「獲得Exp(GotExp)」ローカライズ
+		 */
 
 	@Override public String toString() {
 		try {
