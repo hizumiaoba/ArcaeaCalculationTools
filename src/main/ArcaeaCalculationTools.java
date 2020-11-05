@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -31,7 +32,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	 * Serial Wrote at 20200/06/17
 	 */
 	private static final long serialVersionUID = 1796950740947109175L;
-	private static final String VERSION = "Ver.0.2.2-Alpha";
+	private static final String VERSION = "Ver.0.3.0-Alpha";
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
 			"Arcaea",
@@ -194,6 +195,24 @@ public class ArcaeaCalculationTools extends JFrame {
 	private final JLabel StepsGradeResultShowLabel = new JLabel("");
 	private JComboBox<String> StepsDifficultyBox;
 	private JLabel StepsDifficultyLabel;
+	private JLabel ExpPackLabel = new JLabel(Messages.MSGSongPack.toString());
+	private JLabel ExpSongLabel = new JLabel(Messages.MSGSongTitle.toString());
+	private JLabel ExpDifficultyLabel = new JLabel(Messages.MSGChartDifficulty.toString());
+	private JLabel ExpScoreLabel = new JLabel(Messages.MSGShowScore.toString());
+	private JLabel ExpIsboostedLabel = new JLabel(Messages.MSGIsBoosted.toString());
+	private JComboBox<String> ExpPackbox = new JComboBox<String>();
+	private JComboBox<String> ExpSongBox = new JComboBox<String>();
+	private JComboBox<String> ExpDifficultyBox = new JComboBox<String>();
+	private JCheckBox ExpIsMemoryboostEffected = new JCheckBox(Messages.MSGActive.toString());
+	private JLabel ExpSongInfoLabel = new JLabel(Messages.MSGSongInformation.toString());
+	private JLabel ExpResultLabel = new JLabel(Messages.MSGResult.toString());
+	private JLabel ExpSongTitleEngLabel = new JLabel("");
+	private JLabel ExpSongTitleJpnLabel = new JLabel("");
+	private JLabel ExpChartConstLabel = new JLabel("");
+	private JLabel ExpScoreResultShowLabel = new JLabel("");
+	private JLabel ExpExpResultLabel = new JLabel("");
+	private JLabel ExpGradeShowLabel = new JLabel("");
+	private JTextField ExpScoreField = new JTextField();
 
 	/**
 	 * Launch the application.
@@ -601,11 +620,11 @@ public class ArcaeaCalculationTools extends JFrame {
 		lblTempest.setBounds(1002, 300, 148, 24);
 		Steps.add(lblTempest);
 		StepsSongInfLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		StepsSongInfLabel.setBounds(168, 258, 100, 24);
+		StepsSongInfLabel.setBounds(168, 258, 80, 24);
 
 		Steps.add(StepsSongInfLabel);
 		StepsResultLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		StepsResultLabel.setBounds(631, 258, 100, 24);
+		StepsResultLabel.setBounds(631, 258, 80, 24);
 
 		Steps.add(StepsResultLabel);
 		StepsSongTitleEngLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
@@ -703,6 +722,35 @@ public class ArcaeaCalculationTools extends JFrame {
 		ExpSystemBtn.setLayout(null);
 
 		Exp.add(ExpSystemBtn);
+		btnExpCalculation.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Calculation trigger fired.");
+				int score = Integer.parseInt(ExpScoreField.getText());
+				String pack = ExpPackbox.getSelectedItem().toString();
+				String titleEng = ExpSongBox.getSelectedItem().toString();
+				String difficulty = ExpDifficultyBox.getSelectedItem().toString();
+				String titleJpn = ChartPotential.getTitle(pack, titleEng).toString();
+				double chartconst = ChartPotential.getChartConstant(pack, titleEng, difficulty);
+				boolean isBoosted = ExpIsMemoryboostEffected.isSelected();
+				int Exp = calcLib.Exp.calcExp(pack, titleEng, difficulty, score, isBoosted);
+				ExpSongTitleEngLabel
+						.setText(Messages.MSGEnglishTitle.toString() + " : " + titleEng);
+				ExpSongTitleJpnLabel.setText(Messages.MSGJapaneseTitle.toString() + " : " + titleJpn);
+				ExpChartConstLabel.setText(Messages.MSGChartConstant.toString() + " : " + chartconst);
+				ExpScoreResultShowLabel.setText(Messages.MSGShowScore.toString() + " : " + score);
+				ExpExpResultLabel
+						.setText(String.valueOf(Messages.MSGShowGotExp.toString() + " : " + Exp));
+				ExpGradeShowLabel.setText(Messages.MSGShowGrade + " : " + ChartPotential.getGrade(score));
+				System.out.println("calculation complete."
+						+ "\nscore : " + score
+						+ "\npack : " + pack
+						+ "\ntitleEng : " + titleEng
+						+ "\ndifficulty : " + difficulty
+						+ "\ntitleJpn : " + titleJpn
+						+ "\nchartconst : " + chartconst
+						+ "\nGotExp : " + Exp);
+			}
+		});
 		btnExpCalculation.setActionCommand("");
 		btnExpCalculation.setBounds(0, 0, 175, 40);
 
@@ -725,6 +773,94 @@ public class ArcaeaCalculationTools extends JFrame {
 		ExpLabel.setBounds(510, 49, 100, 24);
 
 		Exp.add(ExpLabel);
+
+		ExpPackLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		ExpPackLabel.setBounds(118, 187, 100, 24);
+		Exp.add(ExpPackLabel);
+
+		ExpSongLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		ExpSongLabel.setBounds(440, 187, 60, 24);
+		Exp.add(ExpSongLabel);
+
+		ExpDifficultyLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		ExpDifficultyLabel.setBounds(679, 187, 120, 24);
+		Exp.add(ExpDifficultyLabel);
+
+		ExpScoreLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		ExpScoreLabel.setBounds(894, 187, 60, 24);
+		Exp.add(ExpScoreLabel);
+
+		ExpIsboostedLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		ExpIsboostedLabel.setBounds(1057, 187, 160, 24);
+		Exp.add(ExpIsboostedLabel);
+
+		ExpPackbox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Reflection trigger fired.");
+				String[] songTitles = ChartPotential.getSongKey((String) ExpPackbox.getSelectedItem());
+				for (String song : songTitles) {
+					System.out.println(song);
+				}
+				songModel.removeAllElements();
+				for (String songName : songTitles) {
+					songModel.addElement(songName);
+				}
+				ExpSongBox.setModel(songModel);
+			}
+		});
+		ExpPackbox.setModel(new DefaultComboBoxModel<String>(PACK_NAME));
+		ExpPackbox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		ExpPackbox.setBounds(65, 221, 214, 21);
+		Exp.add(ExpPackbox);
+
+		ExpSongBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		ExpSongBox.setBounds(307, 221, 333, 21);
+		Exp.add(ExpSongBox);
+		ExpDifficultyBox.setModel(new DefaultComboBoxModel(new String[] {"PST", "PRS", "FTR", "BYD"}));
+
+		ExpDifficultyBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		ExpDifficultyBox.setBounds(668, 221, 145, 21);
+		Exp.add(ExpDifficultyBox);
+
+		ExpIsMemoryboostEffected.setFont(new Font("UD デジタル 教科書体 NK-B", Font.PLAIN, 14));
+		ExpIsMemoryboostEffected.setBounds(1114, 221, 53, 25);
+		Exp.add(ExpIsMemoryboostEffected);
+
+		ExpSongInfoLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		ExpSongInfoLabel.setBounds(209, 283, 80, 24);
+		Exp.add(ExpSongInfoLabel);
+
+		ExpResultLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		ExpResultLabel.setBounds(672, 283, 80, 24);
+		Exp.add(ExpResultLabel);
+
+		ExpSongTitleEngLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		ExpSongTitleEngLabel.setBounds(65, 339, 395, 24);
+		Exp.add(ExpSongTitleEngLabel);
+
+		ExpSongTitleJpnLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		ExpSongTitleJpnLabel.setBounds(68, 406, 395, 24);
+		Exp.add(ExpSongTitleJpnLabel);
+
+		ExpChartConstLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		ExpChartConstLabel.setBounds(64, 464, 395, 24);
+		Exp.add(ExpChartConstLabel);
+
+		ExpScoreResultShowLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		ExpScoreResultShowLabel.setBounds(535, 339, 395, 24);
+		Exp.add(ExpScoreResultShowLabel);
+
+		ExpExpResultLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		ExpExpResultLabel.setBounds(538, 406, 395, 24);
+		Exp.add(ExpExpResultLabel);
+
+		ExpGradeShowLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		ExpGradeShowLabel.setBounds(534, 464, 395, 24);
+		Exp.add(ExpGradeShowLabel);
+
+		ExpScoreField.setBounds(845, 222, 160, 19);
+		Exp.add(ExpScoreField);
+		ExpScoreField.setColumns(10);
 		Performance.setName("Performance");
 
 		contentPane.add(Performance, Performance.getName());
@@ -903,5 +1039,6 @@ public class ArcaeaCalculationTools extends JFrame {
 		}
 		PotentialSongBox.setModel(initBoxModel);
 		StepsSongBox.setModel(initBoxModel);
+		ExpSongBox.setModel(initBoxModel);
 	}
 }
