@@ -44,7 +44,7 @@ import java.util.ResourceBundle;
 		MSGShowSteps,
 		MSGIsBoosted,
 		MSGActive,
-		MSGGotExp;
+		MSGShowGotExp;
 		/*
 		 * TODO: 「有効(Active)」「獲得Exp(GotExp)」ローカライズ
 		 */

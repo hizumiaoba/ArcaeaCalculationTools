@@ -203,7 +203,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	private JComboBox<String> ExpPackbox = new JComboBox<String>();
 	private JComboBox<String> ExpSongBox = new JComboBox<String>();
 	private JComboBox<String> ExpDifficultyBox = new JComboBox<String>();
-	private JCheckBox ExpIsMemoryboostEffected = new JCheckBox("Active");
+	private JCheckBox ExpIsMemoryboostEffected = new JCheckBox(Messages.MSGActive.toString());
 	private JLabel ExpSongInfoLabel = new JLabel(Messages.MSGSongInformation.toString());
 	private JLabel ExpResultLabel = new JLabel(Messages.MSGResult.toString());
 	private JLabel ExpSongTitleEngLabel = new JLabel("");
@@ -739,7 +739,7 @@ public class ArcaeaCalculationTools extends JFrame {
 				ExpChartConstLabel.setText(Messages.MSGChartConstant.toString() + " : " + chartconst);
 				ExpScoreResultShowLabel.setText(Messages.MSGShowScore.toString() + " : " + score);
 				ExpExpResultLabel
-						.setText(String.valueOf(Messages.MSGShowSteps.toString() + " : " + Exp));
+						.setText(String.valueOf(Messages.MSGShowGotExp.toString() + " : " + Exp));
 				ExpGradeShowLabel.setText(Messages.MSGShowGrade + " : " + ChartPotential.getGrade(score));
 				System.out.println("calculation complete."
 						+ "\nscore : " + score
