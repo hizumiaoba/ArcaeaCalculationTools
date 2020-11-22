@@ -32,7 +32,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	 * Serial Wrote at 20200/06/17
 	 */
 	private static final long serialVersionUID = 1796950740947109175L;
-	private static final String VERSION = "Ver.0.3.0-Alpha";
+	private static final String VERSION = "Ver.0.4.0-Alpha";
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
 			"Arcaea",
@@ -213,6 +213,10 @@ public class ArcaeaCalculationTools extends JFrame {
 	private JLabel ExpExpResultLabel = new JLabel("");
 	private JLabel ExpGradeShowLabel = new JLabel("");
 	private JTextField ExpScoreField = new JTextField();
+	private JLabel label;
+	private JLabel label_1;
+	private JLabel label_2;
+	private JLabel label_3;
 
 	/**
 	 * Launch the application.
@@ -943,6 +947,26 @@ public class ArcaeaCalculationTools extends JFrame {
 		PerformanceLabel.setBounds(510, 49, 240, 24);
 
 		Performance.add(PerformanceLabel);
+
+		label = new JLabel("収録パック");
+		label.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		label.setBounds(176, 225, 100, 24);
+		Performance.add(label);
+
+		label_1 = new JLabel("楽曲名");
+		label_1.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		label_1.setBounds(498, 225, 60, 24);
+		Performance.add(label_1);
+
+		label_2 = new JLabel("譜面別難易度");
+		label_2.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		label_2.setBounds(737, 225, 120, 24);
+		Performance.add(label_2);
+
+		label_3 = new JLabel("スコア");
+		label_3.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		label_3.setBounds(952, 225, 60, 24);
+		Performance.add(label_3);
 		ChartConstant.setName("ChartConstant");
 
 		contentPane.add(ChartConstant, ChartConstant.getName());
