@@ -74,6 +74,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Fantasia Hikari",
 			"Sonata Tairitsu",
 			"Tempest Tairitsu",
+			"Etude Saya",
 			"Stella",
 			"Ilith",
 			"Shirabe",
