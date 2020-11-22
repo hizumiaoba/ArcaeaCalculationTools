@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java8"/>
-	<classpathentry kind="lib" path="D:/pleiades/jackson-annotations-2.11.2.jar"/>
-	<classpathentry kind="lib" path="D:/pleiades/jackson-core-2.11.2.jar"/>
-	<classpathentry kind="lib" path="D:/pleiades/jackson-databind-2.11.2.jar" sourcepath="C:/Users/hizum/AppData/Local/Temp/.org.sf.feeling.decompiler1604494692426/source/jackson-databind-2.11.2-sources.jar"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>
