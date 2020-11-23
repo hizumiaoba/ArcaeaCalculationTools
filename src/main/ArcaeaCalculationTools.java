@@ -32,7 +32,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	 * Serial Wrote at 20200/06/17
 	 */
 	private static final long serialVersionUID = 1796950740947109175L;
-	private static final String VERSION = "Ver.0.3.1-Alpha";
+	private static final String VERSION = "Ver.0.4.0-Alpha";
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
 			"Arcaea",
