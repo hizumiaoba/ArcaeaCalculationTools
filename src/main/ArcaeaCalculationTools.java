@@ -42,6 +42,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Luminous_Sky",
 			"Adverse_Prelude",
 			"Black_Fate",
+			"Ephemeral_Page",
 			"Sunset_Radiance",
 			"Absolute_Reason",
 			"Binary_Enfold",
@@ -74,6 +75,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Fantasia Hikari",
 			"Sonata Tairitsu",
 			"Tempest Tairitsu",
+			"Alice&Tenniel",
 			"Stella",
 			"Ilith",
 			"Shirabe",
@@ -90,7 +92,8 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Sia",
 			"DORO*C",
 			"E/S Primera Brillante",
-			"Summer Ilith"
+			"Summer Ilith",
+			"Etude Saya"
 	};
 
 	private DefaultComboBoxModel<String> initBoxModel = new DefaultComboBoxModel<String>();
@@ -213,10 +216,10 @@ public class ArcaeaCalculationTools extends JFrame {
 	private JLabel ExpExpResultLabel = new JLabel("");
 	private JLabel ExpGradeShowLabel = new JLabel("");
 	private JTextField ExpScoreField = new JTextField();
-	private JLabel label;
-	private JLabel label_1;
-	private JLabel label_2;
-	private JLabel label_3;
+	private JLabel PerformancePackLabel;
+	private JLabel PerformanceSongLabel;
+	private JLabel PerformanceDifficultyLabel;
+	private JLabel PerformanceScoreLabel;
 
 	/**
 	 * Launch the application.
@@ -948,25 +951,25 @@ public class ArcaeaCalculationTools extends JFrame {
 
 		Performance.add(PerformanceLabel);
 
-		label = new JLabel("収録パック");
-		label.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		label.setBounds(176, 225, 100, 24);
-		Performance.add(label);
+		PerformancePackLabel = new JLabel("収録パック");
+		PerformancePackLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		PerformancePackLabel.setBounds(176, 225, 100, 24);
+		Performance.add(PerformancePackLabel);
 
-		label_1 = new JLabel("楽曲名");
-		label_1.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		label_1.setBounds(498, 225, 60, 24);
-		Performance.add(label_1);
+		PerformanceSongLabel = new JLabel("楽曲名");
+		PerformanceSongLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		PerformanceSongLabel.setBounds(498, 225, 60, 24);
+		Performance.add(PerformanceSongLabel);
 
-		label_2 = new JLabel("譜面別難易度");
-		label_2.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		label_2.setBounds(737, 225, 120, 24);
-		Performance.add(label_2);
+		PerformanceDifficultyLabel = new JLabel("譜面別難易度");
+		PerformanceDifficultyLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		PerformanceDifficultyLabel.setBounds(737, 225, 120, 24);
+		Performance.add(PerformanceDifficultyLabel);
 
-		label_3 = new JLabel("スコア");
-		label_3.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
-		label_3.setBounds(952, 225, 60, 24);
-		Performance.add(label_3);
+		PerformanceScoreLabel = new JLabel("スコア");
+		PerformanceScoreLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		PerformanceScoreLabel.setBounds(952, 225, 60, 24);
+		Performance.add(PerformanceScoreLabel);
 		ChartConstant.setName("ChartConstant");
 
 		contentPane.add(ChartConstant, ChartConstant.getName());
