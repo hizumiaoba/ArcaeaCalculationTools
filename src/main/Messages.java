@@ -45,9 +45,6 @@ import java.util.ResourceBundle;
 		MSGIsBoosted,
 		MSGActive,
 		MSGShowGotExp;
-		/*
-		 * TODO: 「有効(Active)」「獲得Exp(GotExp)」ローカライズ
-		 */
 
 	@Override public String toString() {
 		try {

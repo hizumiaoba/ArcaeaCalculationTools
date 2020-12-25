@@ -4,7 +4,8 @@ import java.math.BigDecimal;
 
 public class PerformanceRatio {
 
-
+	// Java上の使用回避するため削除検討中
+/*
 	public static double calcPerformance(String pack, String title, String difficulty, int score, boolean isComplete) {
 		double res = 0.00;
 		if(isComplete) {
@@ -14,6 +15,8 @@ public class PerformanceRatio {
 		}
 		return res;
 	}
+
+*/
 
 	public static BigDecimal calcPerformanceWithBD(String pack, String title, String difficulty, int score, boolean isComplete) {
 		BigDecimal compCorr = null;
@@ -27,5 +30,10 @@ public class PerformanceRatio {
 			compCorr.add(potential).multiply(corr);
 		}
 		return compCorr.compareTo(BigDecimal.ZERO) == -1 || compCorr == null ? null : compCorr;
+	}
+
+	public static double calcPerformance(String pack, String title, String difficulty, int score, boolean isComplete) {
+		BigDecimal bd = calcPerformanceWithBD(pack, title, difficulty, score, isComplete);
+		return Double.parseDouble(String.format("%.2f", bd));
 	}
 }
