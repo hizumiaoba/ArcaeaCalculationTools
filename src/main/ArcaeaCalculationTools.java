@@ -48,6 +48,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Binary_Enfold",
 			"Ambivalent_Vision",
 			"Crimson_Solace",
+			"O.N.G.E.K.I",
 			"CHUNITHM",
 			"Groove_Coaster",
 			"Tone_Sphere",
@@ -220,6 +221,11 @@ public class ArcaeaCalculationTools extends JFrame {
 	private JLabel PerformanceSongLabel;
 	private JLabel PerformanceDifficultyLabel;
 	private JLabel PerformanceScoreLabel;
+	private JComboBox<String> comboBox;
+	private JComboBox<String> comboBox_1;
+	private JComboBox<String> comboBox_2;
+	private JCheckBox chkboxTrackComplete;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -970,6 +976,31 @@ public class ArcaeaCalculationTools extends JFrame {
 		PerformanceScoreLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
 		PerformanceScoreLabel.setBounds(952, 225, 60, 24);
 		Performance.add(PerformanceScoreLabel);
+
+		comboBox = new JComboBox<String>();
+		comboBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		comboBox.setBounds(118, 257, 214, 21);
+		Performance.add(comboBox);
+
+		comboBox_1 = new JComboBox<String>();
+		comboBox_1.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		comboBox_1.setBounds(360, 257, 333, 21);
+		Performance.add(comboBox_1);
+
+		comboBox_2 = new JComboBox<String>();
+		comboBox_2.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		comboBox_2.setBounds(721, 257, 145, 21);
+		Performance.add(comboBox_2);
+
+		chkboxTrackComplete = new JCheckBox("完走");
+		chkboxTrackComplete.setFont(new Font("UD デジタル 教科書体 NK-B", Font.PLAIN, 14));
+		chkboxTrackComplete.setBounds(1167, 257, 53, 25);
+		Performance.add(chkboxTrackComplete);
+
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(898, 258, 160, 19);
+		Performance.add(textField);
 		ChartConstant.setName("ChartConstant");
 
 		contentPane.add(ChartConstant, ChartConstant.getName());
