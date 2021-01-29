@@ -48,6 +48,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Binary_Enfold",
 			"Ambivalent_Vision",
 			"Crimson_Solace",
+			"maimai",
 			"O.N.G.E.K.I",
 			"CHUNITHM",
 			"Groove_Coaster",
@@ -76,7 +77,9 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Fantasia Hikari",
 			"Sonata Tairitsu",
 			"Tempest Tairitsu",
+			"Luna&Mia",
 			"Alice&Tenniel",
+			"Sia",
 			"Stella",
 			"Ilith",
 			"Shirabe",
@@ -90,11 +93,13 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Nono",
 			"MTA-XXX Pandora Nemesis",
 			"MDA-21 Regulus",
-			"Sia",
 			"DORO*C",
 			"E/S Primera Brillante",
 			"Summer Ilith",
-			"Etude Saya"
+			"Etude Saya",
+			"Seele",
+			"Areus",
+			"Isabelle Yagurush"
 	};
 
 	private DefaultComboBoxModel<String> initBoxModel = new DefaultComboBoxModel<String>();
