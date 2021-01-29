@@ -32,7 +32,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	 * Serial Wrote at 20200/06/17
 	 */
 	private static final long serialVersionUID = 1796950740947109175L;
-	private static final String VERSION = "Ver.0.3.1-Alpha";
+	private static final String VERSION = "Ver.0.4.0-Alpha";
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
 			"Arcaea",
@@ -42,11 +42,14 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Luminous_Sky",
 			"Adverse_Prelude",
 			"Black_Fate",
+			"Ephemeral_Page",
 			"Sunset_Radiance",
 			"Absolute_Reason",
 			"Binary_Enfold",
 			"Ambivalent_Vision",
 			"Crimson_Solace",
+			"maimai",
+			"O.N.G.E.K.I",
 			"CHUNITHM",
 			"Groove_Coaster",
 			"Tone_Sphere",
@@ -74,7 +77,9 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Fantasia Hikari",
 			"Sonata Tairitsu",
 			"Tempest Tairitsu",
-			"Etude Saya",
+			"Luna&Mia",
+			"Alice&Tenniel",
+			"Sia",
 			"Stella",
 			"Ilith",
 			"Shirabe",
@@ -88,10 +93,13 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Nono",
 			"MTA-XXX Pandora Nemesis",
 			"MDA-21 Regulus",
-			"Sia",
 			"DORO*C",
 			"E/S Primera Brillante",
-			"Summer Ilith"
+			"Summer Ilith",
+			"Etude Saya",
+			"Seele",
+			"Areus",
+			"Isabelle Yagurush"
 	};
 
 	private DefaultComboBoxModel<String> initBoxModel = new DefaultComboBoxModel<String>();
@@ -214,6 +222,15 @@ public class ArcaeaCalculationTools extends JFrame {
 	private JLabel ExpExpResultLabel = new JLabel("");
 	private JLabel ExpGradeShowLabel = new JLabel("");
 	private JTextField ExpScoreField = new JTextField();
+	private JLabel PerformancePackLabel;
+	private JLabel PerformanceSongLabel;
+	private JLabel PerformanceDifficultyLabel;
+	private JLabel PerformanceScoreLabel;
+	private JComboBox<String> comboBox;
+	private JComboBox<String> comboBox_1;
+	private JComboBox<String> comboBox_2;
+	private JCheckBox chkboxTrackComplete;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -944,6 +961,51 @@ public class ArcaeaCalculationTools extends JFrame {
 		PerformanceLabel.setBounds(510, 49, 240, 24);
 
 		Performance.add(PerformanceLabel);
+
+		PerformancePackLabel = new JLabel("収録パック");
+		PerformancePackLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		PerformancePackLabel.setBounds(176, 225, 100, 24);
+		Performance.add(PerformancePackLabel);
+
+		PerformanceSongLabel = new JLabel("楽曲名");
+		PerformanceSongLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		PerformanceSongLabel.setBounds(498, 225, 60, 24);
+		Performance.add(PerformanceSongLabel);
+
+		PerformanceDifficultyLabel = new JLabel("譜面別難易度");
+		PerformanceDifficultyLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		PerformanceDifficultyLabel.setBounds(737, 225, 120, 24);
+		Performance.add(PerformanceDifficultyLabel);
+
+		PerformanceScoreLabel = new JLabel("スコア");
+		PerformanceScoreLabel.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 20));
+		PerformanceScoreLabel.setBounds(952, 225, 60, 24);
+		Performance.add(PerformanceScoreLabel);
+
+		comboBox = new JComboBox<String>();
+		comboBox.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		comboBox.setBounds(118, 257, 214, 21);
+		Performance.add(comboBox);
+
+		comboBox_1 = new JComboBox<String>();
+		comboBox_1.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		comboBox_1.setBounds(360, 257, 333, 21);
+		Performance.add(comboBox_1);
+
+		comboBox_2 = new JComboBox<String>();
+		comboBox_2.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 16));
+		comboBox_2.setBounds(721, 257, 145, 21);
+		Performance.add(comboBox_2);
+
+		chkboxTrackComplete = new JCheckBox("完走");
+		chkboxTrackComplete.setFont(new Font("UD デジタル 教科書体 NK-B", Font.PLAIN, 14));
+		chkboxTrackComplete.setBounds(1167, 257, 53, 25);
+		Performance.add(chkboxTrackComplete);
+
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(898, 258, 160, 19);
+		Performance.add(textField);
 		ChartConstant.setName("ChartConstant");
 
 		contentPane.add(ChartConstant, ChartConstant.getName());
