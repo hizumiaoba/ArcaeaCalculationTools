@@ -32,7 +32,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	 * Serial Wrote at 20200/06/17
 	 */
 	private static final long serialVersionUID = 1796950740947109175L;
-	private static final String VERSION = "Ver.0.4.0-Alpha";
+	private static final String VERSION = "Ver.0.4.1-Alpha";
 	public static final String[] PACK_NAME = {
 			"MemoryArchive",
 			"Arcaea",
@@ -42,6 +42,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Luminous_Sky",
 			"Adverse_Prelude",
 			"Black_Fate",
+			"Esoteric Order",
 			"Ephemeral_Page",
 			"Sunset_Radiance",
 			"Absolute_Reason",
@@ -80,6 +81,7 @@ public class ArcaeaCalculationTools extends JFrame {
 			"Luna&Mia",
 			"Alice&Tenniel",
 			"Sia",
+			"Lagrange",
 			"Stella",
 			"Ilith",
 			"Shirabe",
@@ -997,9 +999,9 @@ public class ArcaeaCalculationTools extends JFrame {
 		comboBox_2.setBounds(721, 257, 145, 21);
 		Performance.add(comboBox_2);
 
-		chkboxTrackComplete = new JCheckBox("完走");
+		chkboxTrackComplete = new JCheckBox("クリア");
 		chkboxTrackComplete.setFont(new Font("UD デジタル 教科書体 NK-B", Font.PLAIN, 14));
-		chkboxTrackComplete.setBounds(1167, 257, 53, 25);
+		chkboxTrackComplete.setBounds(1100, 255, 60, 25);
 		Performance.add(chkboxTrackComplete);
 
 		textField = new JTextField();
