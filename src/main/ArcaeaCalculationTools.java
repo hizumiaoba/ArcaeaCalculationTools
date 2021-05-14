@@ -999,9 +999,9 @@ public class ArcaeaCalculationTools extends JFrame {
 		comboBox_2.setBounds(721, 257, 145, 21);
 		Performance.add(comboBox_2);
 
-		chkboxTrackComplete = new JCheckBox("完走");
+		chkboxTrackComplete = new JCheckBox("クリア");
 		chkboxTrackComplete.setFont(new Font("UD デジタル 教科書体 NK-B", Font.PLAIN, 14));
-		chkboxTrackComplete.setBounds(1167, 257, 53, 25);
+		chkboxTrackComplete.setBounds(1100, 255, 60, 25);
 		Performance.add(chkboxTrackComplete);
 
 		textField = new JTextField();
