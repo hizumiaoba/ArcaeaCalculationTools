@@ -53,4 +53,35 @@ public class FetchLib {
 		System.out.println("success to arrayed");
 		return res;
 	}
+
+	public static String[] fetchPartnerNames() {
+		ArrayList<String> limitedList = new ArrayList<String>();
+		ArrayList<String> permanentList = new ArrayList<String>();
+		System.out.println("started to fetch");
+		String fetchLimitedURI = BASEURI + LIMITEDPARTNERURI;
+		String fetchPermanentURI = BASEURI + PERMANENTPARTNERURI;
+		try {
+			Document limitedDocument = Jsoup.parse(new URL(fetchLimitedURI), 0);
+			Document permanentDocument = Jsoup.parse(new URL(fetchPermanentURI), 0);
+			for(int i = 0; limitedDocument.getElementsByClass("anchor_super").size() > i; i = i + 2) {
+				String tmpString = limitedDocument.getElementsByClass("anchor_super").get(i).id();
+				System.out.println("fetched " + tmpString);
+				limitedList.add(tmpString);
+			}
+			for(int i = 0; permanentDocument.getElementsByClass("anchor_super").size() > i; i = i + 2) {
+				String tmpString = permanentDocument.getElementsByClass("anchor_super").get(i).id();
+				System.out.println("fetched " + tmpString);
+				permanentList.add(tmpString);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("array sizes are " + limitedList.size() + " and " + permanentList.size());
+		permanentList.addAll(limitedList);
+		String[] res = new String[permanentList.size()];
+		permanentList.toArray(res);
+		System.out.println("success to arrayed");
+		return res;
+	}
+
 }

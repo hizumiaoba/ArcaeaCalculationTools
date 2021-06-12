@@ -259,6 +259,7 @@ public class ArcaeaCalculationTools extends JFrame {
 	public ArcaeaCalculationTools() {
 		//for testing codes
 		FetchLib.fetchPackNames();
+		FetchLib.fetchPartnerNames();
 		// initiate the combo box model
 		modelInit();
 		PotentialScoreField.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 12));
