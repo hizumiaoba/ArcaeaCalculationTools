@@ -21,6 +21,15 @@ jobs:
       with:
        tag_name: ${{ github.ref }}
        release_name: Release ${{ github.ref }}
+       body: |+
+            ## Bug fixes
+            -
+
+            ## Features
+            -
+
+            ## BREAKING CHANGES
+            -
        draft: true
        prerelease: false
       
