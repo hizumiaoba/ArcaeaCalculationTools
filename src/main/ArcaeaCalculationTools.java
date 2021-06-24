@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import calcLib.ChartPotential;
+import calcLib.FetchLib;
 import calcLib.Step;
 
 /**
@@ -256,6 +257,9 @@ public class ArcaeaCalculationTools extends JFrame {
 	 * @since Ver0.1.0-Alpha
 	 */
 	public ArcaeaCalculationTools() {
+		//for testing codes
+		FetchLib.fetchPackNames();
+		FetchLib.fetchPartnerNames();
 		// initiate the combo box model
 		modelInit();
 		PotentialScoreField.setFont(new Font("UD デジタル 教科書体 NP-B", Font.PLAIN, 12));
